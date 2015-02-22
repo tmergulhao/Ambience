@@ -10,6 +10,8 @@
 		7984BE7B1A99706000BDB703 /* STAmbience.h in Headers */ = {isa = PBXBuildFile; fileRef = 7984BE7A1A99706000BDB703 /* STAmbience.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7984BE811A99706000BDB703 /* STAmbience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7984BE751A99706000BDB703 /* STAmbience.framework */; };
 		7984BE881A99706000BDB703 /* STAmbienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984BE871A99706000BDB703 /* STAmbienceTests.swift */; };
+		7984BE921A99707E00BDB703 /* STAmbience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984BE911A99707E00BDB703 /* STAmbience.swift */; };
+		7984BE931A99707E00BDB703 /* STAmbience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984BE911A99707E00BDB703 /* STAmbience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,7 @@
 		7984BE801A99706000BDB703 /* STAmbienceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STAmbienceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7984BE861A99706000BDB703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7984BE871A99706000BDB703 /* STAmbienceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAmbienceTests.swift; sourceTree = "<group>"; };
+		7984BE911A99707E00BDB703 /* STAmbience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STAmbience.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,7 @@
 		7984BE771A99706000BDB703 /* STAmbience */ = {
 			isa = PBXGroup;
 			children = (
+				7984BE911A99707E00BDB703 /* STAmbience.swift */,
 				7984BE7A1A99706000BDB703 /* STAmbience.h */,
 				7984BE781A99706000BDB703 /* Supporting Files */,
 			);
@@ -209,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7984BE921A99707E00BDB703 /* STAmbience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7984BE931A99707E00BDB703 /* STAmbience.swift in Sources */,
 				7984BE881A99706000BDB703 /* STAmbienceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +327,7 @@
 		7984BE8C1A99706000BDB703 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -330,12 +337,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		7984BE8D1A99706000BDB703 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
