@@ -16,7 +16,7 @@ private func inBetween<T : Comparable>(value : T, border : (lower : T, upper : T
 	return value >= border.lower && value <= border.upper
 }
 
-public enum AmbienceState : Int, Printable {
+public enum AmbienceState : Printable {
 	case Invert, Regular, Contrast
 	
 	public var description : String {
@@ -39,62 +39,50 @@ public enum AmbienceState : Int, Printable {
 		return inBetween(value, self.range)
 	}
 	
-	internal static func acceptableStates (forBrightness value : STBrightness) -> Array<AmbienceState> {
+	private static func acceptableStates (forBrightness value : STBrightness) -> Set<AmbienceState> {
 		
-		var acceptableStates : Array<AmbienceState> = []
+		var acceptableStates : Set<AmbienceState> = []
 		
 		if AmbienceState.Regular.inBrightnessRange(value) {
-			acceptableStates.append(.Regular)
+			acceptableStates.insert(.Regular)
 		}
 		
 		if AmbienceState.Invert.inBrightnessRange(value) {
-			acceptableStates.append(.Invert)
+			acceptableStates.insert(.Invert)
 		}
 		if AmbienceState.Contrast.inBrightnessRange(value) {
-			acceptableStates.append(.Contrast)
+			acceptableStates.insert(.Contrast)
 		}
 		
 		return acceptableStates
 	}
 }
 
-public protocol STAmbienceViewController : NSObjectProtocol { // UIViewController
-	
-	func ambience (didChangeFrom lastState : AmbienceState?, to currentState : AmbienceState)
-}
-
 public extension UIViewController {
-	func notifyAmbience () -> Bool {
-		if let someSelf = self as? STAmbienceViewController {
-			STAmbience.viewControllers.append(someSelf)
-			
-			someSelf.ambience(didChangeFrom: STAmbience.lastState, to: STAmbience.state)
-			
-			return true
-		} else {
-			return false
-		}
+	final func notifyAmbience () {
+		STAmbience.viewControllers.insert(self)
+		ambience (didChangeFrom: STAmbience.lastState, to: STAmbience.state)
 	}
 	
-	func stopAmbience () {
-		STAmbience.viewControllers = STAmbience.viewControllers.filter({ ($0 as! UIViewController) != self })
+	final func stopAmbience () {
+		STAmbience.viewControllers.remove(self)
 	}
+	
+	func ambience (didChangeFrom lastState : AmbienceState?, to currentState : AmbienceState) {}
 }
 
-internal class STAmbience : NSObject {
+private class STAmbience : NSObject {
 	
-	// TRY APPLYING SETS FOR DUPLICATE SAFETY
-	
-	private static var viewControllers : Array<STAmbienceViewController> = [] {
+	private static var viewControllers : Set<UIViewController> = [] {
 		willSet {
-		if viewControllers.isEmpty {
-		checkBrightnessState()
-		}
+			if viewControllers.isEmpty {
+				checkBrightnessState()
+			}
 		}
 		didSet {
 			if viewControllers.isEmpty {
 				NSNotificationCenter.defaultCenter().removeObserver(self)
-			} else {
+			} else if viewControllers.count == 1 {
 				NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("brightnessDidChange:"), name: UIScreenBrightnessDidChangeNotification, object: nil)
 			}
 		}
@@ -103,7 +91,7 @@ internal class STAmbience : NSObject {
 	private static var lastState : AmbienceState?
 	private static var state : AmbienceState = .Regular {
 		willSet {
-		lastState = state
+			lastState = state
 		}
 		didSet {
 			for viewController in viewControllers {
@@ -116,12 +104,12 @@ internal class STAmbience : NSObject {
 		let currentBrightness = UIScreen.mainScreen().brightness
 		let acceptableStates = AmbienceState.acceptableStates(forBrightness: currentBrightness)
 		
-		if let someState = acceptableStates.first where acceptableStates.filter({ $0 == self.state }).isEmpty {
+		if let someState = acceptableStates.first where !acceptableStates.contains(state) {
 			state = someState
 		}
 	}
 	
-	internal class func brightnessDidChange (notification : NSNotification) {
+	private class func brightnessDidChange (notification : NSNotification) {
 		checkBrightnessState()
 	}
 	
