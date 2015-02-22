@@ -8,6 +8,8 @@
 
 import UIKit
 
+//	TODO: Dynamic thresholds
+
 public typealias STBrightness = CGFloat
 
 private func inBetween<T : Comparable>(value : T, border : (lower : T, upper : T)) -> Bool {
