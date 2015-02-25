@@ -10,12 +10,35 @@ import XCTest
 
 import STAmbience
 
-class SomeViewController : AmbienceViewController {
+public class Ambience_Test : Ambience {
+	public static var dummyBrightness : Brightness = 0.5 {
+		didSet {
+			brightnessDidChange(NSNotification(name: "", object: nil))
+		}
+	}
+	
+	override internal class func brightnessDidChange (notification : NSNotification) {
+		let currentBrightness : Brightness = dummyBrightness
+		
+		let acceptableStates : AmbienceConstraints = Set(filter(constraints){
+			let functor = $0.rangeFunctor
+			return functor(currentBrightness)
+		})
+		
+		if let someState = currentState where !acceptableStates.contains(someState) {
+			currentState = acceptableStates.first
+		} else if let newState = acceptableStates.first where currentState == nil {
+			currentState = newState
+		}
+	}
+}
+
+class SomeViewController : UIViewController, AmbienceViewController {
 	
 	var previousState : AmbienceConstraint?
 	var currentState : AmbienceConstraint?
 	
-	override func ambience (didChangeFrom previousState : AmbienceConstraint?, to currentState : AmbienceConstraint?) {
+	func ambience (didChangeFrom previousState : AmbienceConstraint?, to currentState : AmbienceConstraint?) {
 		self.previousState = previousState
 		self.currentState = currentState
 	}
@@ -28,83 +51,81 @@ class STAmbienceTests: XCTestCase {
     override func setUp() {
         super.setUp()
 		
-		STAmbience.insert(someViewController)
-		
-		STAmbience.dummyMode = true
+		Ambience_Test.insert(someViewController)
     }
     
     override func tearDown() {
-		STAmbience.remove(someViewController)
+		Ambience_Test.remove(someViewController)
 		
         super.tearDown()
     }
     
     func testAddingAndRemovingObject () {
-		XCTAssert(STAmbience.insert(someViewController), "No duplicate add on STAmbience")
+		XCTAssert(Ambience_Test.insert(someViewController), "No duplicate add on STAmbience")
 		
-		XCTAssert(!STAmbience.remove(someViewController), "Removed of STAmbience")
-		XCTAssert(STAmbience.remove(someViewController), "No duplicate remove on STAmbience")
+		XCTAssert(!Ambience_Test.remove(someViewController), "Removed of STAmbience")
+		XCTAssert(Ambience_Test.remove(someViewController), "No duplicate remove on STAmbience")
 		
-		XCTAssert(!STAmbience.insert(someViewController), "Added to STAmbience")
+		XCTAssert(!Ambience_Test.insert(someViewController), "Added to STAmbience")
 	}
 	
 	func testRangeSustaining () {
 		
-		STAmbience.resetConstraint()
-		STAmbience.dummyBrightness = 0.5
+		Ambience_Test.resetConstraint()
+		Ambience_Test.dummyBrightness = 0.5
 		
-		STAmbience.dummyBrightness = 0.05
+		Ambience_Test.dummyBrightness = 0.05
 		
-		XCTAssert(someViewController.currentState?.simpleDescription == "regular", "Sustained inclusive transition")
+		XCTAssert(someViewController.currentState?.description == "regular", "Sustained inclusive transition")
 		
-		STAmbience.dummyBrightness = 0.01
+		Ambience_Test.dummyBrightness = 0.01
 		
-		XCTAssert(someViewController.currentState?.simpleDescription == "invert", "Transition to lower range")
+		XCTAssert(someViewController.currentState?.description == "invert", "Transition to lower range")
 		
-		STAmbience.dummyBrightness = 0.05
+		Ambience_Test.dummyBrightness = 0.05
 		
-		XCTAssert(someViewController.currentState?.simpleDescription == "invert", "Sustained inclusive transition")
+		XCTAssert(someViewController.currentState?.description == "invert", "Sustained inclusive transition")
 	}
 	
 	func testRangeVoiding () {
 		
-		STAmbience.resetConstraint()
-		STAmbience.dummyBrightness = 0.5
+		Ambience_Test.resetConstraint()
+		Ambience_Test.dummyBrightness = 0.5
 		
-		STAmbience.insert(AmbienceConstraint.Regular(lower: 0.4, upper: 1.0))
+		Ambience_Test.insert(AmbienceConstraint.Regular(lower: 0.4, upper: 1.0))
 		
-		STAmbience.dummyBrightness = 0.05
+		Ambience_Test.dummyBrightness = 0.05
 		
-		XCTAssert(someViewController.currentState?.simpleDescription == "invert", "Lower range")
+		XCTAssert(someViewController.currentState?.description == "invert", "Lower range")
 		
-		STAmbience.dummyBrightness = 0.5
+		Ambience_Test.dummyBrightness = 0.5
 		
-		XCTAssert(someViewController.currentState?.simpleDescription == "regular", "Middle range")
+		XCTAssert(someViewController.currentState?.description == "regular", "Middle range")
 		
-		STAmbience.dummyBrightness = 0.3
+		Ambience_Test.dummyBrightness = 0.3
 		
 		XCTAssert(someViewController.currentState == nil, "Void range")
 	}
 	
 	func testInsertConstraintSet () {
 		
-		STAmbience.dummyBrightness = 0.5
-		STAmbience.resetConstraint()
+		Ambience_Test.dummyBrightness = 0.5
+		Ambience_Test.resetConstraint()
 		
-		STAmbience.insert([
+		Ambience_Test.insert([
 			AmbienceConstraint.Invert(upper: 0.2),
 			AmbienceConstraint.Contrast(lower: 0.99)
 		])
 		
-		STAmbience.dummyBrightness = 0.0
+		Ambience_Test.dummyBrightness = 0.0
 		
-		XCTAssert(someViewController.currentState?.simpleDescription == "invert", "Lower range")
+		XCTAssert(someViewController.currentState?.description == "invert", "Lower range")
 		
-		STAmbience.dummyBrightness = 0.2
+		Ambience_Test.dummyBrightness = 0.2
 		
-		XCTAssert(someViewController.currentState?.simpleDescription == "invert", "Lower range")
+		XCTAssert(someViewController.currentState?.description == "invert", "Lower range")
 		
-		STAmbience.dummyBrightness = 0.97
+		Ambience_Test.dummyBrightness = 0.97
 		
 		XCTAssert(someViewController.currentState == nil, "Void range")
 	}

@@ -16,61 +16,58 @@ public func <(lhs: AmbienceConstraint, rhs: AmbienceConstraint) -> Bool {
 }
 
 public typealias Brightness = CGFloat
+public typealias BrightnessRange = (lower : Brightness, upper : Brightness)
+
+internal typealias AmbienceConstraints = Set<AmbienceConstraint>
 
 public enum AmbienceConstraint : Printable, Hashable, Comparable {
 	case Invert(upper : Brightness)
 	case Regular(lower : Brightness, upper : Brightness)
 	case Contrast(lower : Brightness)
 	
-	public var simpleDescription : String {
-		switch self {
-		case .Invert(let upper): return "invert"
-		case .Regular(let lower, let upper): return "regular"
-		case .Contrast(let lower): return "contrast"
-		}
-	}
-	
 	public var description : String {
 		switch self {
-		case .Invert(let upper): return "invert \(0.0, upper)"
-		case .Regular(let lower, let upper): return "regular \(lower, upper)"
-		case .Contrast(let lower): return "contrast \(lower, 1.0)"
+		case .Invert:	return "invert"
+		case .Regular:	return "regular"
+		case .Contrast: return "contrast"
 		}
 	}
 	
 	public var hashValue : Int {
-		switch self {
-		case .Invert: return simpleDescription.hashValue
-		case .Regular: return simpleDescription.hashValue
-		case .Contrast: return simpleDescription.hashValue
-		}
+		return description.hashValue
 	}
 	
-	private var range : (lower : Brightness, upper : Brightness) {
+	internal var rangeFunctor : ((Brightness) -> Bool) {
 		switch self {
-		case .Invert(let upper): return (0.0, upper)
-		case .Regular(let lower, let upper): return (lower, upper)
-		case .Contrast(let lower): return (lower, 1)
+		case .Invert(let upper): return ({
+			(value : Brightness) -> Bool in
+			return value <= upper
+		})
+		case .Regular(let lower, let upper): return ({
+			(value : Brightness) -> Bool in
+			return value <= upper && value >= lower
+		})
+		case .Contrast(let lower): return ({
+			(value : Brightness) -> Bool in
+			return value >= lower
+		})
 		}
-	}
-	
-	private func inBrightnessRange (value : Brightness) -> Bool {
-		return value >= range.lower && value <= range.upper
 	}
 }
 
-public class AmbienceViewController : UIViewController {
-	func ambience (didChangeFrom previousState : AmbienceConstraint?, to currentState : AmbienceConstraint?) {}
+protocol AmbienceViewController {
+	func ambience (didChangeFrom previousState : AmbienceConstraint?, to currentState : AmbienceConstraint?)
 }
 
-public class STAmbience : NSObject {
+public class Ambience : NSObject {
 	
 	// return false on error
-	internal class func insert (viewController : AmbienceViewController) -> Bool {
-		if !viewControllers.contains(viewController) {
+	internal class func insert (viewController : UIViewController) -> Bool {
+		if let someViewController = viewController as? AmbienceViewController
+			where !viewControllers.contains(viewController) {
 			viewControllers.insert(viewController)
 			
-			viewController.ambience(didChangeFrom: previousState, to: currentState)
+			someViewController.ambience(didChangeFrom: previousState, to: currentState)
 			
 			return false
 		}
@@ -78,8 +75,9 @@ public class STAmbience : NSObject {
 		return true
 	}
 	
-	internal class func remove (viewController : AmbienceViewController) -> Bool {
-		if viewControllers.contains(viewController) {
+	internal class func remove (viewController : UIViewController) -> Bool {
+		if let someViewController = viewController as? AmbienceViewController
+			where viewControllers.contains(viewController) {
 			viewControllers.remove(viewController)
 			
 			return false
@@ -94,25 +92,25 @@ public class STAmbience : NSObject {
 	internal class func insert (newConstraint : AmbienceConstraint) {
 		constraints.insert(newConstraint)
 	}
-	internal class func insert (newConstraints : Set<AmbienceConstraint>) {
+	internal class func insert (newConstraints : AmbienceConstraints) {
 		println(newConstraints)
 		println(constraints)
 		constraints.unionInPlace(newConstraints)
 	}
 	
-	private static let standartConstraints : Set<AmbienceConstraint> = [
+	private static let standartConstraints : AmbienceConstraints = [
 		.Invert(upper: 0.10),
 		.Regular(lower: 0.05, upper: 0.95),
 		.Contrast(lower: 0.90)
 	]
 	
-	private static var constraints  = standartConstraints {
+	internal static var constraints : AmbienceConstraints = standartConstraints {
 		didSet {
 			brightnessDidChange(NSNotification(name: "", object: nil))
 		}
 	}
 	
-	private static var viewControllers : Set<AmbienceViewController> = [] {
+	private static var viewControllers : Set<UIViewController> = [] {
 		willSet {
 			if viewControllers.isEmpty {
 				brightnessDidChange(NSNotification(name: "", object: nil))
@@ -131,29 +129,23 @@ public class STAmbience : NSObject {
 	}
 	
 	private static var previousState : AmbienceConstraint?
-	private static var currentState : AmbienceConstraint? {
+	internal static var currentState : AmbienceConstraint? {
 		willSet {
 			previousState = currentState
 		}
 		didSet {
 			for viewController in viewControllers {
-				viewController.ambience(didChangeFrom: previousState, to: currentState)
+				(viewController as! AmbienceViewController).ambience(didChangeFrom: previousState, to: currentState)
 			}
 		}
 	}
 	
-	public static var dummyMode : Bool = false
-	public static var dummyBrightness : Brightness = 0.5 {
-		didSet {
-			brightnessDidChange(NSNotification(name: "", object: nil))
-		}
-	}
-	
-	private class func brightnessDidChange (notification : NSNotification) {
-		let currentBrightness : Brightness = dummyMode ? dummyBrightness : UIScreen.mainScreen().brightness
+	internal class func brightnessDidChange (notification : NSNotification) {
+		let currentBrightness : Brightness = UIScreen.mainScreen().brightness
 		
-		let acceptableStates : Set<AmbienceConstraint> = Set(filter(constraints){
-			$0.inBrightnessRange(currentBrightness)
+		let acceptableStates : AmbienceConstraints = Set(filter(constraints){
+			let functor = $0.rangeFunctor
+			return functor(currentBrightness)
 		})
 		
 		if let someState = currentState where !acceptableStates.contains(someState) {
