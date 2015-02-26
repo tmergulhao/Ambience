@@ -20,27 +20,27 @@ public class Ambience_Test : Ambience {
 	override internal class func brightnessDidChange (notification : NSNotification) {
 		let currentBrightness : Brightness = dummyBrightness
 		
-		let acceptableStates : AmbienceConstraints = Set(filter(constraints){
+		let acceptableConstraints : AmbienceConstraints = Set(filter(constraints){
 			let functor = $0.rangeFunctor
 			return functor(currentBrightness)
 		})
 		
-		if let someState = currentState where !acceptableStates.contains(someState) {
-			currentState = acceptableStates.first
-		} else if let newState = acceptableStates.first where currentState == nil {
-			currentState = newState
+		if let someConstraint = currentConstraint where !acceptableConstraints.contains(someConstraint) {
+			currentConstraint = acceptableConstraints.first
+		} else if let newConstraint = acceptableConstraints.first where currentConstraint == nil {
+			currentConstraint = newConstraint
 		}
 	}
 }
 
 class SomeViewController : UIViewController, AmbienceListener {
 	
-	var previousState : AmbienceConstraint?
-	var currentState : AmbienceConstraint?
+	var previousConstraint : AmbienceConstraint?
+	var currentConstraint : AmbienceConstraint?
 	
-	func ambience (didChangeFrom previousState : AmbienceConstraint?, to currentState : AmbienceConstraint?) {
-		self.previousState = previousState
-		self.currentState = currentState
+	func ambience (didChangeFrom previousConstraint : AmbienceConstraint?, to currentConstraint : AmbienceConstraint?) {
+		self.previousConstraint = previousConstraint
+		self.currentConstraint = currentConstraint
 	}
 }
 
@@ -76,15 +76,15 @@ class STAmbienceTests: XCTestCase {
 		
 		Ambience_Test.dummyBrightness = 0.05
 		
-		XCTAssert(someViewController.currentState?.description == "regular", "Sustained inclusive transition")
+		XCTAssert(someViewController.currentConstraint?.description == "regular", "Sustained inclusive transition")
 		
 		Ambience_Test.dummyBrightness = 0.01
 		
-		XCTAssert(someViewController.currentState?.description == "invert", "Transition to lower range")
+		XCTAssert(someViewController.currentConstraint?.description == "invert", "Transition to lower range")
 		
 		Ambience_Test.dummyBrightness = 0.05
 		
-		XCTAssert(someViewController.currentState?.description == "invert", "Sustained inclusive transition")
+		XCTAssert(someViewController.currentConstraint?.description == "invert", "Sustained inclusive transition")
 	}
 	
 	func testRangeVoiding () {
@@ -96,15 +96,15 @@ class STAmbienceTests: XCTestCase {
 		
 		Ambience_Test.dummyBrightness = 0.05
 		
-		XCTAssert(someViewController.currentState?.description == "invert", "Lower range")
+		XCTAssert(someViewController.currentConstraint?.description == "invert", "Lower range")
 		
 		Ambience_Test.dummyBrightness = 0.5
 		
-		XCTAssert(someViewController.currentState?.description == "regular", "Middle range")
+		XCTAssert(someViewController.currentConstraint?.description == "regular", "Middle range")
 		
 		Ambience_Test.dummyBrightness = 0.3
 		
-		XCTAssert(someViewController.currentState == nil, "Void range")
+		XCTAssert(someViewController.currentConstraint == nil, "Void range")
 	}
 	
 	func testInsertConstraintSet () {
@@ -119,14 +119,14 @@ class STAmbienceTests: XCTestCase {
 		
 		Ambience_Test.dummyBrightness = 0.0
 		
-		XCTAssert(someViewController.currentState?.description == "invert", "Lower range")
+		XCTAssert(someViewController.currentConstraint?.description == "invert", "Lower range")
 		
 		Ambience_Test.dummyBrightness = 0.2
 		
-		XCTAssert(someViewController.currentState?.description == "invert", "Lower range")
+		XCTAssert(someViewController.currentConstraint?.description == "invert", "Lower range")
 		
 		Ambience_Test.dummyBrightness = 0.97
 		
-		XCTAssert(someViewController.currentState == nil, "Void range")
+		XCTAssert(someViewController.currentConstraint == nil, "Void range")
 	}
 }

@@ -55,19 +55,19 @@ public enum AmbienceConstraint : Printable, Hashable, Comparable {
 	}
 }
 
-protocol AmbienceListener {
-	func ambience (didChangeFrom previousState : AmbienceConstraint?, to currentState : AmbienceConstraint?)
+public protocol AmbienceListener {
+	func ambience (didChangeFrom previousConstraint : AmbienceConstraint?, to currentConstraint : AmbienceConstraint?)
 }
 
 public class Ambience : NSObject {
 	
 	// return false on error
-	internal class func insert (#listener : NSObject) -> Bool {
+	public class func insert (#listener : NSObject) -> Bool {
 		if let someListener = listener as? AmbienceListener
 			where !listeners.contains(listener) {
 			listeners.insert(listener)
 			
-			someListener.ambience(didChangeFrom: previousState, to: currentState)
+			someListener.ambience(didChangeFrom: previousConstraint, to: currentConstraint)
 			
 			return false
 		}
@@ -75,7 +75,7 @@ public class Ambience : NSObject {
 		return true
 	}
 	
-	internal class func remove (#listener : UIViewController) -> Bool {
+	public class func remove (#listener : NSObject) -> Bool {
 		if let someListener = listener as? AmbienceListener
 			where listeners.contains(listener) {
 			listeners.remove(listener)
@@ -127,14 +127,14 @@ public class Ambience : NSObject {
 		}
 	}
 	
-	private static var previousState : AmbienceConstraint?
-	internal static var currentState : AmbienceConstraint? {
+	private static var previousConstraint : AmbienceConstraint?
+	internal static var currentConstraint : AmbienceConstraint? {
 		willSet {
-			previousState = currentState
+			previousConstraint = currentConstraint
 		}
 		didSet {
 			for listener in listeners {
-				(listener as! AmbienceListener).ambience(didChangeFrom: previousState, to: currentState)
+				(listener as! AmbienceListener).ambience(didChangeFrom: previousConstraint, to: currentConstraint)
 			}
 		}
 	}
@@ -142,15 +142,15 @@ public class Ambience : NSObject {
 	internal class func brightnessDidChange (notification : NSNotification) {
 		let currentBrightness : Brightness = UIScreen.mainScreen().brightness
 		
-		let acceptableStates : AmbienceConstraints = Set(filter(constraints){
+		let acceptableConstraints : AmbienceConstraints = Set(filter(constraints){
 			let functor = $0.rangeFunctor
 			return functor(currentBrightness)
 		})
 		
-		if let someState = currentState where !acceptableStates.contains(someState) {
-			currentState = acceptableStates.first
-		} else if let newState = acceptableStates.first where currentState == nil {
-			currentState = newState
+		if let someConstraint = currentConstraint where !acceptableConstraints.contains(someConstraint) {
+			currentConstraint = acceptableConstraints.first
+		} else if let newConstraint = acceptableConstraints.first where currentConstraint == nil {
+			currentConstraint = newConstraint
 		}
 	}
 	
