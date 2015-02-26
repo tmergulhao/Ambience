@@ -55,19 +55,19 @@ public enum AmbienceConstraint : Printable, Hashable, Comparable {
 	}
 }
 
-protocol AmbienceViewController {
+protocol AmbienceListener {
 	func ambience (didChangeFrom previousState : AmbienceConstraint?, to currentState : AmbienceConstraint?)
 }
 
 public class Ambience : NSObject {
 	
 	// return false on error
-	internal class func insert (viewController : UIViewController) -> Bool {
-		if let someViewController = viewController as? AmbienceViewController
-			where !viewControllers.contains(viewController) {
-			viewControllers.insert(viewController)
+	internal class func insert (#listener : NSObject) -> Bool {
+		if let someListener = listener as? AmbienceListener
+			where !listeners.contains(listener) {
+			listeners.insert(listener)
 			
-			someViewController.ambience(didChangeFrom: previousState, to: currentState)
+			someListener.ambience(didChangeFrom: previousState, to: currentState)
 			
 			return false
 		}
@@ -75,10 +75,10 @@ public class Ambience : NSObject {
 		return true
 	}
 	
-	internal class func remove (viewController : UIViewController) -> Bool {
-		if let someViewController = viewController as? AmbienceViewController
-			where viewControllers.contains(viewController) {
-			viewControllers.remove(viewController)
+	internal class func remove (#listener : UIViewController) -> Bool {
+		if let someListener = listener as? AmbienceListener
+			where listeners.contains(listener) {
+			listeners.remove(listener)
 			
 			return false
 		}
@@ -89,13 +89,12 @@ public class Ambience : NSObject {
 	public class func resetConstraint () {
 		constraints = standartConstraints
 	}
-	internal class func insert (newConstraint : AmbienceConstraint) {
-		constraints.insert(newConstraint)
+	internal class func insert ( #constraint : AmbienceConstraint) {
+		self.constraints.insert(constraint)
 	}
-	internal class func insert (newConstraints : AmbienceConstraints) {
-		println(newConstraints)
+	internal class func insert ( #constraints : AmbienceConstraints) {
 		println(constraints)
-		constraints.unionInPlace(newConstraints)
+		self.constraints.unionInPlace(constraints)
 	}
 	
 	private static let standartConstraints : AmbienceConstraints = [
@@ -110,16 +109,16 @@ public class Ambience : NSObject {
 		}
 	}
 	
-	private static var viewControllers : Set<UIViewController> = [] {
+	private static var listeners : Set<NSObject> = [] {
 		willSet {
-			if viewControllers.isEmpty {
+			if listeners.isEmpty {
 				brightnessDidChange(NSNotification(name: "", object: nil))
 			}
 		}
 		didSet {
-			if viewControllers.isEmpty {
+			if listeners.isEmpty {
 				NSNotificationCenter.defaultCenter().removeObserver(self)
-			} else if viewControllers.count == 1 {
+			} else if listeners.count == 1 {
 				NSNotificationCenter.defaultCenter().addObserver(self,
 					selector: Selector("brightnessDidChange:"),
 					name: UIScreenBrightnessDidChangeNotification,
@@ -134,8 +133,8 @@ public class Ambience : NSObject {
 			previousState = currentState
 		}
 		didSet {
-			for viewController in viewControllers {
-				(viewController as! AmbienceViewController).ambience(didChangeFrom: previousState, to: currentState)
+			for listener in listeners {
+				(listener as! AmbienceListener).ambience(didChangeFrom: previousState, to: currentState)
 			}
 		}
 	}

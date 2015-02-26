@@ -33,7 +33,7 @@ public class Ambience_Test : Ambience {
 	}
 }
 
-class SomeViewController : UIViewController, AmbienceViewController {
+class SomeViewController : UIViewController, AmbienceListener {
 	
 	var previousState : AmbienceConstraint?
 	var currentState : AmbienceConstraint?
@@ -51,22 +51,22 @@ class STAmbienceTests: XCTestCase {
     override func setUp() {
         super.setUp()
 		
-		Ambience_Test.insert(someViewController)
+		Ambience_Test.insert(listener: someViewController)
     }
     
     override func tearDown() {
-		Ambience_Test.remove(someViewController)
+		Ambience_Test.remove(listener: someViewController)
 		
         super.tearDown()
     }
     
     func testAddingAndRemovingObject () {
-		XCTAssert(Ambience_Test.insert(someViewController), "No duplicate add on STAmbience")
+		XCTAssert(Ambience_Test.insert(listener: someViewController), "No duplicate add on STAmbience")
 		
-		XCTAssert(!Ambience_Test.remove(someViewController), "Removed of STAmbience")
-		XCTAssert(Ambience_Test.remove(someViewController), "No duplicate remove on STAmbience")
+		XCTAssert(!Ambience_Test.remove(listener: someViewController), "Removed of STAmbience")
+		XCTAssert(Ambience_Test.remove(listener: someViewController), "No duplicate remove on STAmbience")
 		
-		XCTAssert(!Ambience_Test.insert(someViewController), "Added to STAmbience")
+		XCTAssert(!Ambience_Test.insert(listener: someViewController), "Added to STAmbience")
 	}
 	
 	func testRangeSustaining () {
@@ -92,7 +92,7 @@ class STAmbienceTests: XCTestCase {
 		Ambience_Test.resetConstraint()
 		Ambience_Test.dummyBrightness = 0.5
 		
-		Ambience_Test.insert(AmbienceConstraint.Regular(lower: 0.4, upper: 1.0))
+		Ambience_Test.insert(constraint: AmbienceConstraint.Regular(lower: 0.4, upper: 1.0))
 		
 		Ambience_Test.dummyBrightness = 0.05
 		
@@ -112,7 +112,7 @@ class STAmbienceTests: XCTestCase {
 		Ambience_Test.dummyBrightness = 0.5
 		Ambience_Test.resetConstraint()
 		
-		Ambience_Test.insert([
+		Ambience_Test.insert(constraints: [
 			AmbienceConstraint.Invert(upper: 0.2),
 			AmbienceConstraint.Contrast(lower: 0.99)
 		])
