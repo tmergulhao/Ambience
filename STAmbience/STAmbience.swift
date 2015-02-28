@@ -20,16 +20,25 @@ public typealias BrightnessRange = (lower : Brightness, upper : Brightness)
 
 internal typealias AmbienceConstraints = Set<AmbienceConstraint>
 
+public enum AmbienceState : String {
+	case Invert = "invert"
+	case Regular = "regular"
+	case Contrast = "contrast"
+}
 public enum AmbienceConstraint : Printable, Hashable, Comparable {
 	case Invert(upper : Brightness)
 	case Regular(lower : Brightness, upper : Brightness)
 	case Contrast(lower : Brightness)
 	
 	public var description : String {
+		return self.state.rawValue
+	}
+	
+	public var state : AmbienceState {
 		switch self {
-		case .Invert:	return "invert"
-		case .Regular:	return "regular"
-		case .Contrast: return "contrast"
+		case .Invert:	return AmbienceState.Invert
+		case .Regular:	return AmbienceState.Regular
+		case .Contrast: return AmbienceState.Contrast
 		}
 	}
 	
@@ -56,7 +65,7 @@ public enum AmbienceConstraint : Printable, Hashable, Comparable {
 }
 
 public protocol AmbienceListener {
-	func ambience (didChangeFrom previousConstraint : AmbienceConstraint?, to currentConstraint : AmbienceConstraint?)
+	func ambience (didChangeFrom previousState : AmbienceState?, to currentState : AmbienceState?)
 }
 
 public class Ambience : NSObject {
@@ -67,7 +76,7 @@ public class Ambience : NSObject {
 			where !listeners.contains(listener) {
 			listeners.insert(listener)
 			
-			someListener.ambience(didChangeFrom: previousConstraint, to: currentConstraint)
+			someListener.ambience(didChangeFrom: previousConstraint?.state, to: currentConstraint?.state)
 			
 			return false
 		}
@@ -134,7 +143,7 @@ public class Ambience : NSObject {
 		}
 		didSet {
 			for listener in listeners {
-				(listener as! AmbienceListener).ambience(didChangeFrom: previousConstraint, to: currentConstraint)
+				(listener as! AmbienceListener).ambience(didChangeFrom: previousConstraint?.state, to: currentConstraint?.state)
 			}
 		}
 	}
