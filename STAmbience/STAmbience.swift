@@ -141,7 +141,7 @@ public class Ambience : NSObject {
 	
 	private weak var listener : AmbienceListener?
 	
-	init (listener : AmbienceListener) {
+	public init (listener : AmbienceListener) {
 		self.listener = listener
 		
 		super.init()
