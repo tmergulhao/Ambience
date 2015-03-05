@@ -37,7 +37,7 @@ extension Set {
 public typealias Brightness = CGFloat
 internal typealias BrightnessRange = (lower : Brightness, upper : Brightness)
 
-internal typealias AmbienceConstraints = Set<AmbienceConstraint>
+public typealias AmbienceConstraints = Set<AmbienceConstraint>
 internal typealias AmbienceStates = Set<AmbienceState>
 
 public enum AmbienceState : String {
@@ -86,22 +86,23 @@ public enum AmbienceConstraint : Printable, Hashable, Comparable {
 }
 
 public protocol AmbienceListener : class {
-	func ambience (didChangeFrom previousState : AmbienceState?, to currentState : AmbienceState?)
+	func ambience (didChangeFrom previousState : AmbienceState?, to currentState : AmbienceState)
 }
 
 public class Ambience : NSObject {
 	
+	private weak var listener : AmbienceListener!
+	
 	private var previousState : AmbienceState?
-	internal var currentState : AmbienceState? {
+	private var currentState : AmbienceState = .Regular {
 		willSet {
 			previousState = currentState
 		}
 		didSet {
-			listener?.ambience(didChangeFrom: previousState, to: currentState)
+			listener.ambience(didChangeFrom: previousState, to: currentState)
 		}
 	}
-	
-	internal var constraints : AmbienceConstraints = [
+	private var constraints : AmbienceConstraints = [
 		.Invert(upper: 0.10),
 		.Regular(lower: 0.05, upper: 0.95),
 		.Contrast(lower: 0.90)
@@ -111,35 +112,32 @@ public class Ambience : NSObject {
 		}
 	}
 	
-	internal func processConstraints (forBrightness value : Brightness) {
+	private func processConstraints (forBrightness value : Brightness) {
 		let acceptableStates : AmbienceStates = constraints.filter({
 			$0.rangeFunctor(value)
 		}).map({
 			$0.state
 		})
 		
-		if let someState = currentState where !acceptableStates.contains(someState) {
-			currentState = acceptableStates.first
-		} else if let newState = acceptableStates.first where currentState == nil {
-			currentState = newState
+		if let firstState = acceptableStates.first
+		where !acceptableStates.contains(currentState) {
+			currentState = firstState
 		}
 	}
-	internal func checkBrightnessValue () {
+	private func checkBrightnessValue () {
 		processConstraints(forBrightness : UIScreen.mainScreen().brightness)
 	}
-	internal func brightnessDidChange (notification : NSNotification) {
+	public func brightnessDidChange (notification : NSNotification) {
 		checkBrightnessValue()
 	}
 	
-	internal func insert ( #constraint : AmbienceConstraint ) {
+	public func insert ( #constraint : AmbienceConstraint ) {
 		self.constraints.insert(constraint)
 	}
-	internal func insert ( #constraints : AmbienceConstraints ) {
-		println(constraints)
+	public func insert ( #constraints : AmbienceConstraints ) {
 		self.constraints.unionInPlace(constraints)
 	}
 	
-	private weak var listener : AmbienceListener?
 	
 	public init (listener : AmbienceListener) {
 		self.listener = listener
@@ -152,6 +150,8 @@ public class Ambience : NSObject {
 			object: nil)
 		
 		checkBrightnessValue()
+		
+		listener.ambience(didChangeFrom: previousState, to: currentState)
 	}
 	
 	deinit {
