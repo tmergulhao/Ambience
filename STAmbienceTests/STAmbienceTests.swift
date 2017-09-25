@@ -10,19 +10,19 @@ import XCTest
 
 import STAmbience
 
-private class Ambience_Test : Ambience {
-	private var dummyBrightness : Brightness = 0.5 {
+fileprivate class Ambience_Test : Ambience {
+	fileprivate var brightness : Brightness = 0.5 {
 		didSet {
-			processConstraints(forBrightness: dummyBrightness)
+			processConstraints(forBrightness: brightness)
 		}
 	}
 }
 
 class SomeViewController : UIViewController, AmbienceListener {
-	
+
 	var currentState : AmbienceState?
 	
-	func ambience (didChangeFrom previousState : AmbienceState?, to currentState : AmbienceState?) {
+	func ambience(didChangeFrom previousState : AmbienceState?, to currentState : AmbienceState) {
 		self.currentState = currentState
 	}
 }
@@ -45,59 +45,59 @@ class STAmbienceTests: XCTestCase {
 	
 	func testRangeSustaining () {
 		
-		someAmbience.dummyBrightness = 0.5
+		someAmbience.brightness = 0.5
 		
-		someAmbience.dummyBrightness = 0.05
+		someAmbience.brightness = 0.05
 		
 		XCTAssert(someViewController.currentState?.rawValue == "regular", "Sustained inclusive transition")
 		
-		someAmbience.dummyBrightness = 0.01
+		someAmbience.brightness = 0.01
 		
 		XCTAssert(someViewController.currentState?.rawValue == "invert", "Transition to lower range")
 		
-		someAmbience.dummyBrightness = 0.05
+		someAmbience.brightness = 0.05
 		
 		XCTAssert(someViewController.currentState?.rawValue == "invert", "Sustained inclusive transition")
 	}
 	
 	func testRangeVoiding () {
 		
-		someAmbience.dummyBrightness = 0.5
-		
-		someAmbience.insert(constraint: AmbienceConstraint.Regular(lower: 0.4, upper: 1.0))
-		
-		someAmbience.dummyBrightness = 0.05
-		
-		XCTAssert(someViewController.currentState?.rawValue == "invert", "Lower range")
-		
-		someAmbience.dummyBrightness = 0.5
-		
-		XCTAssert(someViewController.currentState?.rawValue == "regular", "Middle range")
-		
-		someAmbience.dummyBrightness = 0.3
-		
-		XCTAssert(someViewController.currentState == nil, "Void range")
+        someAmbience.brightness = 0.5
+        
+        someAmbience.insert(AmbienceConstraint.Regular(lower: 0.4, upper: 1.0))
+        
+        someAmbience.brightness = 0.05
+        
+        XCTAssert(someViewController.currentState?.rawValue == "invert", "Lower range")
+        
+        someAmbience.brightness = 0.5
+        
+        XCTAssert(someViewController.currentState?.rawValue == "regular", "Middle range")
+        
+        someAmbience.brightness = 0.3
+        
+        XCTAssert(someViewController.currentState != nil, "Void range")
 	}
 	
 	func testInsertConstraintSet () {
 		
-		someAmbience.dummyBrightness = 0.5
-		
-		someAmbience.insert(constraints: [
-			AmbienceConstraint.Invert(upper: 0.2),
-			AmbienceConstraint.Contrast(lower: 0.99)
-		])
-		
-		someAmbience.dummyBrightness = 0.0
-		
-		XCTAssert(someViewController.currentState?.rawValue == "invert", "Lower range")
-		
-		someAmbience.dummyBrightness = 0.2
-		
-		XCTAssert(someViewController.currentState?.rawValue == "invert", "Lower range")
-		
-		someAmbience.dummyBrightness = 0.97
-		
-		XCTAssert(someViewController.currentState == nil, "Void range")
+        someAmbience.brightness = 0.5
+
+        someAmbience.insert([
+            AmbienceConstraint.Invert(upper: 0.2),
+            AmbienceConstraint.Contrast(lower: 0.99)
+        ])
+
+        someAmbience.brightness = 0.0
+
+        XCTAssert(someViewController.currentState?.rawValue == "invert", "Lower range")
+
+        someAmbience.brightness = 0.2
+
+        XCTAssert(someViewController.currentState?.rawValue == "invert", "Lower range")
+
+        someAmbience.brightness = 0.97
+
+        XCTAssert(someViewController.currentState != nil, "Void range")
 	}
 }
