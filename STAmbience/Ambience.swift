@@ -8,75 +8,12 @@
 
 import UIKit
 
-public func ==(lhs: AmbienceConstraint, rhs: AmbienceConstraint) -> Bool {
-	return lhs.hashValue == rhs.hashValue
-}
-public func <(lhs: AmbienceConstraint, rhs: AmbienceConstraint) -> Bool {
-	return lhs.hashValue < rhs.hashValue
-}
-
 public typealias Brightness = CGFloat
 internal typealias BrightnessRange = (lower : Brightness, upper : Brightness)
 
-public typealias AmbienceConstraints = Set<AmbienceConstraint>
-internal typealias AmbienceStates = Set<AmbienceState>
-
-public enum AmbienceState : String {
-	case Invert = "invert"
-	case Regular = "regular"
-	case Contrast = "contrast"
-}
-
-public enum AmbienceConstraint : Hashable, Comparable, CustomStringConvertible {
-	case Invert(upper : Brightness)
-	case Regular(lower : Brightness, upper : Brightness)
-	case Contrast(lower : Brightness)
-	
-	public var description : String {
-        switch self {
-        case .Invert(let upper): return "Invert<\(upper)>"
-        case .Regular(let lower, let upper): return "Invert<\(lower), \(upper)>"
-        case .Contrast(let lower): return "Contrast<\(lower)>"
-        }
-	}
-	
-	public var state : AmbienceState {
-		switch self {
-		case .Invert:	return AmbienceState.Invert
-		case .Regular:	return AmbienceState.Regular
-		case .Contrast: return AmbienceState.Contrast
-		}
-	}
-	
-	public var hashValue : Int {
-		return description.hashValue
-	}
-	
-	internal var rangeFunctor : ((Brightness) -> Bool) {
-		switch self {
-		case .Invert(let upper): return ({
-			(value : Brightness) -> Bool in
-			return value <= upper
-		})
-		case .Regular(let lower, let upper): return ({
-			(value : Brightness) -> Bool in
-			return value <= upper && value >= lower
-		})
-		case .Contrast(let lower): return ({
-			(value : Brightness) -> Bool in
-			return value >= lower
-		})
-		}
-	}
-}
-
-public protocol AmbienceListener : class {
-	func ambience (didChangeFrom previousState : AmbienceState?, to currentState : AmbienceState)
-}
-
 public class Ambience {
 	
-	internal weak var listener : AmbienceListener!
+    static var shared : Ambience = Ambience()
 	
 	internal var previousState : AmbienceState?
 	internal var currentState : AmbienceState = .Regular {
@@ -84,7 +21,9 @@ public class Ambience {
             previousState = currentState
         }
         didSet {
-            listener.ambience(didChangeFrom: previousState, to: currentState)
+            listeners.forEach {
+                $0.ambience(didChangeFrom: previousState, to: currentState)
+            }
         }
 	}
 	internal var constraints : AmbienceConstraints = [
@@ -125,10 +64,17 @@ public class Ambience {
         newSet.formUnion(constraints)
         self.constraints = newSet
 	}
-
+    
+    var listeners = Array<AmbienceListener>()
+    
+    public class func insert (_ listener : AmbienceListener) {
+        Ambience.shared.listeners.append(listener)
+    }
+    public class func remove (_ listener : AmbienceListener) {
+        //Ambience.shared.listeners
+    }
 	
-	public init (listener : AmbienceListener) {
-		self.listener = listener
+	private init () {
 		
         NotificationCenter.default.addObserver(self,
             selector: #selector(brightnessDidChange),
@@ -136,8 +82,6 @@ public class Ambience {
 			object: nil)
 		
 		checkBrightnessValue()
-		
-		listener.ambience(didChangeFrom: previousState, to: currentState)
 	}
 	
 	deinit {
