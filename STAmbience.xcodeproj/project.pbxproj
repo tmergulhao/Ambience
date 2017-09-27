@@ -12,8 +12,6 @@
 		7984BE881A99706000BDB703 /* STAmbienceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984BE871A99706000BDB703 /* STAmbienceTests.swift */; };
 		7984BE921A99707E00BDB703 /* Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984BE911A99707E00BDB703 /* Ambience.swift */; };
 		7984BE931A99707E00BDB703 /* Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7984BE911A99707E00BDB703 /* Ambience.swift */; };
-		79B3CE311F79BAA200E685BB /* AmbienceListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3CE301F79BAA200E685BB /* AmbienceListener.swift */; };
-		79B3CE321F79BAA200E685BB /* AmbienceListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3CE301F79BAA200E685BB /* AmbienceListener.swift */; };
 		79B3CE341F79BAC800E685BB /* AmbienceConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3CE331F79BAC800E685BB /* AmbienceConstraint.swift */; };
 		79B3CE351F79BAC800E685BB /* AmbienceConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3CE331F79BAC800E685BB /* AmbienceConstraint.swift */; };
 		79B3CE371F79BAE800E685BB /* AmbienceStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B3CE361F79BAE800E685BB /* AmbienceStates.swift */; };
@@ -38,7 +36,6 @@
 		7984BE861A99706000BDB703 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7984BE871A99706000BDB703 /* STAmbienceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAmbienceTests.swift; sourceTree = "<group>"; };
 		7984BE911A99707E00BDB703 /* Ambience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ambience.swift; sourceTree = "<group>"; };
-		79B3CE301F79BAA200E685BB /* AmbienceListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbienceListener.swift; sourceTree = "<group>"; };
 		79B3CE331F79BAC800E685BB /* AmbienceConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbienceConstraint.swift; sourceTree = "<group>"; };
 		79B3CE361F79BAE800E685BB /* AmbienceStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbienceStates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,7 +83,6 @@
 				7984BE911A99707E00BDB703 /* Ambience.swift */,
 				79B3CE361F79BAE800E685BB /* AmbienceStates.swift */,
 				79B3CE331F79BAC800E685BB /* AmbienceConstraint.swift */,
-				79B3CE301F79BAA200E685BB /* AmbienceListener.swift */,
 				7984BE7A1A99706000BDB703 /* STAmbience.h */,
 				7984BE781A99706000BDB703 /* Supporting Files */,
 			);
@@ -229,7 +225,6 @@
 			files = (
 				79B3CE341F79BAC800E685BB /* AmbienceConstraint.swift in Sources */,
 				7984BE921A99707E00BDB703 /* Ambience.swift in Sources */,
-				79B3CE311F79BAA200E685BB /* AmbienceListener.swift in Sources */,
 				79B3CE371F79BAE800E685BB /* AmbienceStates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,7 +235,6 @@
 			files = (
 				79B3CE351F79BAC800E685BB /* AmbienceConstraint.swift in Sources */,
 				7984BE931A99707E00BDB703 /* Ambience.swift in Sources */,
-				79B3CE321F79BAA200E685BB /* AmbienceListener.swift in Sources */,
 				79B3CE381F79BAE800E685BB /* AmbienceStates.swift in Sources */,
 				7984BE881A99706000BDB703 /* STAmbienceTests.swift in Sources */,
 			);

@@ -11,9 +11,13 @@ import UIKit
 public typealias Brightness = CGFloat
 internal typealias BrightnessRange = (lower : Brightness, upper : Brightness)
 
+public extension Notification.Name {
+    public static let STAmbienceDidChange = Notification.Name("STAmbienceDidChangeNotification")
+}
+
 public class Ambience {
 	
-    static var shared : Ambience = Ambience()
+    public static var shared : Ambience = Ambience()
 	
 	internal var previousState : AmbienceState?
 	internal var currentState : AmbienceState = .Regular {
@@ -21,9 +25,9 @@ public class Ambience {
             previousState = currentState
         }
         didSet {
-            listeners.forEach {
-                $0.ambience(didChangeFrom: previousState, to: currentState)
-            }
+            let notification : Notification = Notification(name: Notification.Name.STAmbienceDidChange, object: nil, userInfo: ["previousState" : previousState ?? .Regular, "currentState": currentState])
+            
+            NotificationCenter.default.post(notification)
         }
 	}
 	internal var constraints : AmbienceConstraints = [
@@ -64,15 +68,6 @@ public class Ambience {
         newSet.formUnion(constraints)
         self.constraints = newSet
 	}
-    
-    var listeners = Array<AmbienceListener>()
-    
-    public class func insert (_ listener : AmbienceListener) {
-        Ambience.shared.listeners.append(listener)
-    }
-    public class func remove (_ listener : AmbienceListener) {
-        //Ambience.shared.listeners
-    }
 	
 	private init () {
 		
