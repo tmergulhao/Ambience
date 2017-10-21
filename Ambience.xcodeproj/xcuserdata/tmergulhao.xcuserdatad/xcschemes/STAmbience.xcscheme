@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0900"
+   LastUpgradeVersion = "0910"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7984BE741A99706000BDB703"
-               BuildableName = "STAmbience.framework"
-               BlueprintName = "STAmbience"
-               ReferencedContainer = "container:STAmbience.xcodeproj">
+               BuildableName = "Ambience.framework"
+               BlueprintName = "Ambience"
+               ReferencedContainer = "container:Ambience.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7984BE7F1A99706000BDB703"
-               BuildableName = "STAmbienceTests.xctest"
-               BlueprintName = "STAmbienceTests"
-               ReferencedContainer = "container:STAmbience.xcodeproj">
+               BuildableName = "AmbienceTests.xctest"
+               BlueprintName = "AmbienceTests"
+               ReferencedContainer = "container:Ambience.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,9 +48,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7984BE7F1A99706000BDB703"
-               BuildableName = "STAmbienceTests.xctest"
-               BlueprintName = "STAmbienceTests"
-               ReferencedContainer = "container:STAmbience.xcodeproj">
+               BuildableName = "AmbienceTests.xctest"
+               BlueprintName = "AmbienceTests"
+               ReferencedContainer = "container:Ambience.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -58,9 +58,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7984BE741A99706000BDB703"
-            BuildableName = "STAmbience.framework"
-            BlueprintName = "STAmbience"
-            ReferencedContainer = "container:STAmbience.xcodeproj">
+            BuildableName = "Ambience.framework"
+            BlueprintName = "Ambience"
+            ReferencedContainer = "container:Ambience.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -81,9 +81,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7984BE741A99706000BDB703"
-            BuildableName = "STAmbience.framework"
-            BlueprintName = "STAmbience"
-            ReferencedContainer = "container:STAmbience.xcodeproj">
+            BuildableName = "Ambience.framework"
+            BlueprintName = "Ambience"
+            ReferencedContainer = "container:Ambience.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7984BE741A99706000BDB703"
-            BuildableName = "STAmbience.framework"
-            BlueprintName = "STAmbience"
-            ReferencedContainer = "container:STAmbience.xcodeproj">
+            BuildableName = "Ambience.framework"
+            BlueprintName = "Ambience"
+            ReferencedContainer = "container:Ambience.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

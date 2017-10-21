@@ -19,13 +19,13 @@ public class Ambience {
 	
     public static var shared : Ambience = Ambience()
 	
-	internal var previousState : AmbienceState?
-	internal var currentState : AmbienceState = .Regular {
+	public static var previousState : AmbienceState = .Regular
+	public static var currentState : AmbienceState = .Regular {
         willSet {
             previousState = currentState
         }
         didSet {
-            let notification : Notification = Notification(name: Notification.Name.STAmbienceDidChange, object: nil, userInfo: ["previousState" : previousState ?? .Regular, "currentState": currentState])
+            let notification : Notification = Notification(name: Notification.Name.STAmbienceDidChange, object: nil, userInfo: ["previousState" : previousState, "currentState": currentState])
             
             NotificationCenter.default.post(notification)
         }
@@ -51,8 +51,8 @@ public class Ambience {
             return set.union([item])
         }
 
-        if let firstState = acceptableStates.first, !acceptableStates.contains(currentState) {
-            currentState = firstState
+        if let firstState = acceptableStates.first, !acceptableStates.contains(Ambience.currentState) {
+            Ambience.currentState = firstState
         }
 	}
 	internal func checkBrightnessValue () {
@@ -69,7 +69,7 @@ public class Ambience {
         self.constraints = newSet
 	}
 	
-	private init () {
+	internal init () {
 		
         NotificationCenter.default.addObserver(self,
             selector: #selector(brightnessDidChange),
