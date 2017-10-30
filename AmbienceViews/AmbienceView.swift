@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class AmbienceView : UIView, AmbienceListener {
+open class AmbienceView : UIView {
     
     @IBInspectable public var contrastColor : UIColor?
     @IBInspectable public var invertColor : UIColor?
@@ -21,6 +21,9 @@ open class AmbienceView : UIView, AmbienceListener {
     deinit {
         Ambience.remove(listener: self)
     }
+}
+
+extension AmbienceView : AmbienceListener {
     
     @objc open func ambience(_ notification : Notification) {
         

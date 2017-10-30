@@ -8,16 +8,23 @@
 
 import UIKit
 
-public class AmbienceWindow : UIWindow, AmbienceListener {
+public class AmbienceWindow : UIWindow {
     
     public var contrastColor : UIColor?
     public var invertColor : UIColor?
     public var regularColor : UIColor?
     
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
+    public convenience init (contrast contrastColor : UIColor, invert invertColor : UIColor, regular regularColor : UIColor, frame : CGRect) {
+        self.init(frame: frame)
+        self.contrastColor = contrastColor
+        self.invertColor = invertColor
+        self.regularColor = regularColor
         
         Ambience.add(listener: self)
+    }
+    
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -29,6 +36,9 @@ public class AmbienceWindow : UIWindow, AmbienceListener {
     deinit {
         Ambience.remove(listener: self)
     }
+}
+
+extension AmbienceWindow : AmbienceListener {
     
     @objc public func ambience(_ notification : Notification) {
         

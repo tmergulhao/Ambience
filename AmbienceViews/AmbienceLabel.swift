@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AmbienceLabel : UILabel, AmbienceListener {
+class AmbienceLabel : UILabel {
     
     @IBInspectable var contrastColor : UIColor?
     @IBInspectable var invertColor : UIColor?
@@ -21,6 +21,9 @@ class AmbienceLabel : UILabel, AmbienceListener {
     deinit {
         Ambience.remove(listener: self)
     }
+}
+
+extension AmbienceLabel : AmbienceListener {
     
     @objc public func ambience(_ notification : Notification) {
         
