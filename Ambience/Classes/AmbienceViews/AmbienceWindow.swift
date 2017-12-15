@@ -47,9 +47,9 @@ extension AmbienceWindow : AmbienceListener {
         UIView.animate(withDuration: 1) {
             self.backgroundColor = {
                 switch currentState {
-                case .Contrast: return self.contrastColor
-                case .Invert: return self.invertColor
-                case .Regular: return self.regularColor
+                case .contrast: return self.contrastColor
+                case .invert: return self.invertColor
+                case .regular: return self.regularColor
                 }
             }()
         }

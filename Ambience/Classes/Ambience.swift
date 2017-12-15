@@ -19,8 +19,8 @@ public class Ambience {
     
     public static var shared : Ambience = Ambience()
     
-    public static var previousState : AmbienceState = .Regular
-    public static var currentState : AmbienceState = .Regular {
+    public static var previousState : AmbienceState = .regular
+    public static var currentState : AmbienceState = .regular {
         willSet {
             previousState = currentState
         }
@@ -31,9 +31,9 @@ public class Ambience {
         }
     }
     internal var constraints : AmbienceConstraints = [
-        .Invert(upper: 0.10),
-        .Regular(lower: 0.05, upper: 0.95),
-        .Contrast(lower: 0.90)
+        .invert(upper: 0.10),
+        .regular(lower: 0.05, upper: 0.95),
+        .contrast(lower: 0.90)
         ] {
         didSet {
             checkBrightnessValue()

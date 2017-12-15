@@ -11,7 +11,7 @@ import Foundation
 internal typealias AmbienceStates = Set<AmbienceState>
 
 public enum AmbienceState : String {
-    case Invert = "invert"
-    case Regular = "regular"
-    case Contrast = "contrast"
+    case invert = "invert"
+    case regular = "regular"
+    case contrast = "contrast"
 }

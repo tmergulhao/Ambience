@@ -18,23 +18,23 @@ public func <(lhs: AmbienceConstraint, rhs: AmbienceConstraint) -> Bool {
 public typealias AmbienceConstraints = Set<AmbienceConstraint>
 
 public enum AmbienceConstraint : Hashable, Comparable, CustomStringConvertible {
-    case Invert(upper : Brightness)
-    case Regular(lower : Brightness, upper : Brightness)
-    case Contrast(lower : Brightness)
+    case invert(upper : Brightness)
+    case regular(lower : Brightness, upper : Brightness)
+    case contrast(lower : Brightness)
     
     public var description : String {
         switch self {
-        case .Invert(let upper): return "Invert<\(upper)>"
-        case .Regular(let lower, let upper): return "Invert<\(lower), \(upper)>"
-        case .Contrast(let lower): return "Contrast<\(lower)>"
+        case .invert(let upper): return "Invert<\(upper)>"
+        case .regular(let lower, let upper): return "Invert<\(lower), \(upper)>"
+        case .contrast(let lower): return "Contrast<\(lower)>"
         }
     }
     
     public var state : AmbienceState {
         switch self {
-        case .Invert:    return AmbienceState.Invert
-        case .Regular:    return AmbienceState.Regular
-        case .Contrast: return AmbienceState.Contrast
+        case .invert:    return AmbienceState.invert
+        case .regular:    return AmbienceState.regular
+        case .contrast: return AmbienceState.contrast
         }
     }
     
@@ -44,18 +44,12 @@ public enum AmbienceConstraint : Hashable, Comparable, CustomStringConvertible {
     
     internal var rangeFunctor : ((Brightness) -> Bool) {
         switch self {
-        case .Invert(let upper): return ({
-            (value : Brightness) -> Bool in
-            return value <= upper
-        })
-        case .Regular(let lower, let upper): return ({
-            (value : Brightness) -> Bool in
-            return value <= upper && value >= lower
-        })
-        case .Contrast(let lower): return ({
-            (value : Brightness) -> Bool in
-            return value >= lower
-        })
+        case .invert(let upper):
+            return { $0 <= upper }
+        case .regular(let lower, let upper):
+            return { $0 <= upper && $0 >= lower }
+        case .contrast(let lower):
+            return { $0 >= lower }
         }
     }
 }

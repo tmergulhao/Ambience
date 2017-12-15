@@ -32,9 +32,9 @@ extension AmbienceLabel : AmbienceListener {
         UIView.animate(withDuration: 1) {
             self.textColor = {
                 switch currentState {
-                case .Contrast: return self.contrastColor
-                case .Invert: return self.invertColor
-                case .Regular: return self.regularColor
+                case .contrast: return self.contrastColor
+                case .invert: return self.invertColor
+                case .regular: return self.regularColor
                 }
                 }() ?? self.textColor
         }
