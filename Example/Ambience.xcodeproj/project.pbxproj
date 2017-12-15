@@ -215,12 +215,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 6CSUU74W7V;
+						DevelopmentTeam = 68WS2M23VC;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 6CSUU74W7V;
+						DevelopmentTeam = 68WS2M23VC;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -519,7 +519,7 @@
 			baseConfigurationReference = A380E44F2D725A5FD03417D9 /* Pods-Ambience_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6CSUU74W7V;
+				DEVELOPMENT_TEAM = 68WS2M23VC;
 				INFOPLIST_FILE = Ambience/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -535,7 +535,7 @@
 			baseConfigurationReference = D47A2D187D2EEDBAA6BDF12B /* Pods-Ambience_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6CSUU74W7V;
+				DEVELOPMENT_TEAM = 68WS2M23VC;
 				INFOPLIST_FILE = Ambience/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -550,7 +550,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C6D4415FEC342F8153A5CFEB /* Pods-Ambience_Tests.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 6CSUU74W7V;
+				DEVELOPMENT_TEAM = 68WS2M23VC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -572,7 +572,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 52B0AA363C1F368C37FC9358 /* Pods-Ambience_Tests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 6CSUU74W7V;
+				DEVELOPMENT_TEAM = 68WS2M23VC;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
