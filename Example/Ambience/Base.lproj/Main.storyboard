@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,9 +40,9 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQH-rm-jV0" customClass="AmbienceLabel" customModule="Ambience">
-                                <rect key="frame" x="27.5" y="313" width="320" height="41"/>
-                                <string key="text">Hello World
-Change the brightess to see me change ;)</string>
+                                <rect key="frame" x="43" y="313.5" width="289.5" height="41"/>
+                                <string key="text">I have a dream.
+In that dream I choose my own colors.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,10 +58,18 @@ Change the brightess to see me change ;)</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm not trying to convince you I'm different" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWS-iR-HcO" customClass="AmbienceLabel" customModule="Ambience">
+                                <rect key="frame" x="26" y="241" width="322" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="sWS-iR-HcO" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="I19-dd-8Ll"/>
                             <constraint firstItem="oQH-rm-jV0" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="PzZ-dO-zbe"/>
+                            <constraint firstItem="oQH-rm-jV0" firstAttribute="top" secondItem="sWS-iR-HcO" secondAttribute="bottom" constant="52" id="QlN-Um-8Kt"/>
                             <constraint firstItem="hii-uO-ezh" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="kkG-fd-Voo"/>
                             <constraint firstItem="hii-uO-ezh" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="nLd-Lk-xRI"/>
                             <constraint firstItem="oQH-rm-jV0" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="xYr-1G-E8N"/>

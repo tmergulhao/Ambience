@@ -8,24 +8,11 @@
 
 import UIKit
 
-class AmbienceLabel : UILabel {
+extension UILabel {
     
-    @IBInspectable var contrastColor : UIColor?
-    @IBInspectable var invertColor : UIColor?
-    @IBInspectable var regularColor : UIColor?
+    @objc public override func normallyListensToAmbience () -> Bool { return true }
     
-    public override func didMoveToWindow() {
-        Ambience.add(listener: self)
-    }
-    
-    deinit {
-        Ambience.remove(listener: self)
-    }
-}
-
-extension AmbienceLabel : AmbienceListener {
-    
-    @objc public func ambience(_ notification : Notification) {
+    public override func ambience(_ notification : Notification) {
         
         guard let currentState = notification.userInfo?["currentState"] as? AmbienceState else { return }
         

@@ -71,6 +71,8 @@ public class Ambience {
     
     internal init () {
         
+        UIView.classInit
+        
         NotificationCenter.default.addObserver(self,
             selector: #selector(brightnessDidChange),
             name: NSNotification.Name.UIScreenBrightnessDidChange,

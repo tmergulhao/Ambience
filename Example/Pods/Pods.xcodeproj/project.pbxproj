@@ -15,14 +15,18 @@
 		790BEFC61FE43E95004DF4D9 /* AmbienceConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790BEFC51FE43E95004DF4D9 /* AmbienceConstraint.swift */; };
 		790BEFCC1FE43F06004DF4D9 /* AmbienceListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790BEFCB1FE43F06004DF4D9 /* AmbienceListener.swift */; };
 		790BEFCE1FE43F2E004DF4D9 /* AmbienceStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790BEFCD1FE43F2E004DF4D9 /* AmbienceStates.swift */; };
+		7927F86A1FE46DF100590F42 /* UIView+NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927F8691FE46DF100590F42 /* UIView+NotificationManager.swift */; };
+		7927F86C1FE46E2C00590F42 /* Swizzling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927F86B1FE46E2C00590F42 /* Swizzling.swift */; };
+		7927F86E1FE4745100590F42 /* KeyValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927F86D1FE4745100590F42 /* KeyValues.swift */; };
+		7927F8701FE4759500590F42 /* UIView+AmbienceListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927F86F1FE4759500590F42 /* UIView+AmbienceListener.swift */; };
+		79A4710E1FE47FE40018CD30 /* StandartStyles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79A4710C1FE47B490018CD30 /* StandartStyles.xcassets */; };
+		79A471101FE4885F0018CD30 /* UILayoutGuide+AmbienceListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A4710F1FE4885F0018CD30 /* UILayoutGuide+AmbienceListener.swift */; };
 		7D028A6B6ACD95F8C1A39CE4C5E689B6 /* Pods-Ambience_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E33422A1EB0F3B38DAD872E27D3EB1 /* Pods-Ambience_Example-dummy.m */; };
 		879CB4C582DC8789DB286DCBC13D6E5C /* Pods-Ambience_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 43CEEA0511C6208E69E9B0A49F8DF364 /* Pods-Ambience_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95B55C8B058968AA584B20CF1F04497C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		CD928FC0D67D47D4EED124FCAFDBE3AC /* Ambience-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BDBA66A0D885DE116E944EC93734CEA2 /* Ambience-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F46DCCD0141E390E7086ADEE1ED0695B /* Pods-Ambience_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D5136E4D06E06893B852DC3855971E33 /* Pods-Ambience_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FBCC731A1FE4482300263576 /* AmbienceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC73171FE4482300263576 /* AmbienceLabel.swift */; };
-		FBCC731B1FE4482300263576 /* AmbienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC73181FE4482300263576 /* AmbienceView.swift */; };
-		FBCC731C1FE4482300263576 /* AmbienceWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC73191FE4482300263576 /* AmbienceWindow.swift */; };
+		FBCC731A1FE4482300263576 /* UILabel+AmbienceListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC73171FE4482300263576 /* UILabel+AmbienceListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,12 @@
 		790BEFC51FE43E95004DF4D9 /* AmbienceConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbienceConstraint.swift; path = Ambience/Classes/AmbienceConstraint.swift; sourceTree = "<group>"; };
 		790BEFCB1FE43F06004DF4D9 /* AmbienceListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbienceListener.swift; path = Ambience/Classes/AmbienceListener.swift; sourceTree = "<group>"; };
 		790BEFCD1FE43F2E004DF4D9 /* AmbienceStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbienceStates.swift; path = Ambience/Classes/AmbienceStates.swift; sourceTree = "<group>"; };
+		7927F8691FE46DF100590F42 /* UIView+NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NotificationManager.swift"; sourceTree = "<group>"; };
+		7927F86B1FE46E2C00590F42 /* Swizzling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swizzling.swift; sourceTree = "<group>"; };
+		7927F86D1FE4745100590F42 /* KeyValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValues.swift; sourceTree = "<group>"; };
+		7927F86F1FE4759500590F42 /* UIView+AmbienceListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AmbienceListener.swift"; sourceTree = "<group>"; };
+		79A4710C1FE47B490018CD30 /* StandartStyles.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = StandartStyles.xcassets; sourceTree = "<group>"; };
+		79A4710F1FE4885F0018CD30 /* UILayoutGuide+AmbienceListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILayoutGuide+AmbienceListener.swift"; sourceTree = "<group>"; };
 		834A9F551640A2C3CCC88138084F4B9D /* Ambience-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Ambience-dummy.m"; sourceTree = "<group>"; };
 		8F5951867B8F3FE012323EDD74FA29A7 /* Pods_Ambience_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambience_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		919DDF71877DD3CDC1250BE1B1C27CA7 /* Pods-Ambience_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Ambience_Example.modulemap"; sourceTree = "<group>"; };
@@ -71,9 +81,7 @@
 		D5136E4D06E06893B852DC3855971E33 /* Pods-Ambience_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Ambience_Tests-umbrella.h"; sourceTree = "<group>"; };
 		DCEF95186A5451C8C356E92C5C065E7D /* Pods-Ambience_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Ambience_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F265BE3492BBEAB155A1B23F1A2776D6 /* Ambience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Ambience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBCC73171FE4482300263576 /* AmbienceLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmbienceLabel.swift; sourceTree = "<group>"; };
-		FBCC73181FE4482300263576 /* AmbienceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmbienceView.swift; sourceTree = "<group>"; };
-		FBCC73191FE4482300263576 /* AmbienceWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmbienceWindow.swift; sourceTree = "<group>"; };
+		FBCC73171FE4482300263576 /* UILabel+AmbienceListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+AmbienceListener.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +179,8 @@
 				790BEFCD1FE43F2E004DF4D9 /* AmbienceStates.swift */,
 				790BEFCB1FE43F06004DF4D9 /* AmbienceListener.swift */,
 				790BEFC51FE43E95004DF4D9 /* AmbienceConstraint.swift */,
+				7927F86B1FE46E2C00590F42 /* Swizzling.swift */,
+				79A4710C1FE47B490018CD30 /* StandartStyles.xcassets */,
 				FBCC73161FE4482300263576 /* AmbienceViews */,
 				853269F55DFAB988BFBCF36C26B743D2 /* Support Files */,
 			);
@@ -225,9 +235,11 @@
 		FBCC73161FE4482300263576 /* AmbienceViews */ = {
 			isa = PBXGroup;
 			children = (
-				FBCC73171FE4482300263576 /* AmbienceLabel.swift */,
-				FBCC73181FE4482300263576 /* AmbienceView.swift */,
-				FBCC73191FE4482300263576 /* AmbienceWindow.swift */,
+				FBCC73171FE4482300263576 /* UILabel+AmbienceListener.swift */,
+				7927F8691FE46DF100590F42 /* UIView+NotificationManager.swift */,
+				7927F86F1FE4759500590F42 /* UIView+AmbienceListener.swift */,
+				79A4710F1FE4885F0018CD30 /* UILayoutGuide+AmbienceListener.swift */,
+				7927F86D1FE4745100590F42 /* KeyValues.swift */,
 			);
 			name = AmbienceViews;
 			path = Ambience/Classes/AmbienceViews;
@@ -305,6 +317,7 @@
 				203B86EFF9C03FFEF9BE74913C4753EE /* Sources */,
 				A75F4076F62856BCC810F1B05BFB9936 /* Frameworks */,
 				B2EC1B098389A103FDBF7EC18700DD14 /* Headers */,
+				79A4710D1FE47FDF0018CD30 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -343,19 +356,33 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		79A4710D1FE47FDF0018CD30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79A4710E1FE47FE40018CD30 /* StandartStyles.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		203B86EFF9C03FFEF9BE74913C4753EE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBCC731B1FE4482300263576 /* AmbienceView.swift in Sources */,
+				79A471101FE4885F0018CD30 /* UILayoutGuide+AmbienceListener.swift in Sources */,
 				790BEFC61FE43E95004DF4D9 /* AmbienceConstraint.swift in Sources */,
 				0AA2E8FCA33DC5A81F9F69BA15E6F7F7 /* Ambience-dummy.m in Sources */,
-				FBCC731C1FE4482300263576 /* AmbienceWindow.swift in Sources */,
+				7927F8701FE4759500590F42 /* UIView+AmbienceListener.swift in Sources */,
+				7927F86A1FE46DF100590F42 /* UIView+NotificationManager.swift in Sources */,
 				06663E1BC96D19811E9E6E8DBC77F892 /* Ambience.swift in Sources */,
 				790BEFCE1FE43F2E004DF4D9 /* AmbienceStates.swift in Sources */,
-				FBCC731A1FE4482300263576 /* AmbienceLabel.swift in Sources */,
+				7927F86C1FE46E2C00590F42 /* Swizzling.swift in Sources */,
+				FBCC731A1FE4482300263576 /* UILabel+AmbienceListener.swift in Sources */,
 				790BEFCC1FE43F06004DF4D9 /* AmbienceListener.swift in Sources */,
+				7927F86E1FE4745100590F42 /* KeyValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,7 +430,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Ambience/Ambience-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Ambience/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Ambience/Ambience.modulemap";
 				PRODUCT_NAME = Ambience;
@@ -551,7 +578,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Ambience/Ambience-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Ambience/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Ambience/Ambience.modulemap";
 				PRODUCT_NAME = Ambience;
