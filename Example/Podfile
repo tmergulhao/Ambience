@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Ambience_Example' do
+  pod 'Ambience', :path => '../'
+
+  target 'Ambience_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

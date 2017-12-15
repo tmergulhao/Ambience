@@ -1,0 +1,16 @@
+PODS:
+  - Ambience (0.1.0)
+
+DEPENDENCIES:
+  - Ambience (from `../`)
+
+EXTERNAL SOURCES:
+  Ambience:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Ambience: 0a5e1efaa484f66899a96e9a0d79e063f29b3555
+
+PODFILE CHECKSUM: c58891b337287d1f40b9e77bfa8f8a9a7b085356
+
+COCOAPODS: 1.3.1

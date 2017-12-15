@@ -1,0 +1,6 @@
+framework module Ambience {
+  umbrella header "Ambience-umbrella.h"
+
+  export *
+  module * { export * }
+}
