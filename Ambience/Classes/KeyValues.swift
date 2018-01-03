@@ -10,12 +10,13 @@ import Foundation
 internal struct Properties {
 
     var backgroundColor = "backgroundColor"
+    var textColor = "textColor"
 }
 
 internal struct KeyValues {
     
     static var notificationManager = "notificationManager"
-    static var listensToAmbience = "listensToAmbience"
+    static var ambience = "ambience"
     
     static var regular =    Properties()
     static var contrast =   Properties()

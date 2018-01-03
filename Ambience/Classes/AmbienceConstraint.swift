@@ -32,8 +32,8 @@ public enum AmbienceConstraint : Hashable, Comparable, CustomStringConvertible {
     
     public var state : AmbienceState {
         switch self {
-        case .invert:    return AmbienceState.invert
-        case .regular:    return AmbienceState.regular
+        case .invert:   return AmbienceState.invert
+        case .regular:  return AmbienceState.regular
         case .contrast: return AmbienceState.contrast
         }
     }
