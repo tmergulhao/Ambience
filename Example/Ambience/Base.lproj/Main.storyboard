@@ -60,14 +60,31 @@ In that dream I choose my own colors.</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y66-RZ-EmC" customClass="AmbienceLabel" customModule="Ambience">
+                                <rect key="frame" x="166" y="490" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColorInvert">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColorContrast">
+                                        <color key="value" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96999612630499998" green="0.96999999999999997" blue="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sWS-iR-HcO" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="I19-dd-8Ll"/>
+                            <constraint firstItem="y66-RZ-EmC" firstAttribute="top" secondItem="hii-uO-ezh" secondAttribute="bottom" constant="93" id="LpX-ej-G5S"/>
                             <constraint firstItem="oQH-rm-jV0" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="PzZ-dO-zbe"/>
                             <constraint firstItem="oQH-rm-jV0" firstAttribute="top" secondItem="sWS-iR-HcO" secondAttribute="bottom" constant="52" id="QlN-Um-8Kt"/>
                             <constraint firstItem="hii-uO-ezh" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="kkG-fd-Voo"/>
                             <constraint firstItem="hii-uO-ezh" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="nLd-Lk-xRI"/>
+                            <constraint firstItem="y66-RZ-EmC" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="uTN-qf-zZU"/>
                             <constraint firstItem="oQH-rm-jV0" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="xYr-1G-E8N"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -80,9 +97,20 @@ In that dream I choose my own colors.</string>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" id="G3D-I4-xOd"/>
+                    <navigationItem key="navigationItem" id="G3D-I4-xOd">
+                        <barButtonItem key="rightBarButtonItem" title="Ambience" id="15f-dt-mEx">
+                            <connections>
+                                <action selector="switchAmbience:" destination="tff-oA-QJz" id="OG5-Wm-xEI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <customObject id="tff-oA-QJz" customClass="AmbienceObject" customModule="Ambience">
+                    <connections>
+                        <outlet property="viewController" destination="vXZ-lx-hvc" id="SWh-vA-uT9"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1250" y="31"/>
         </scene>
@@ -92,6 +120,7 @@ In that dream I choose my own colors.</string>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="d2u-4m-JWz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R7S-xQ-DXk">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>

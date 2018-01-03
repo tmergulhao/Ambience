@@ -14,10 +14,12 @@
 		7927F86E1FE4745100590F42 /* KeyValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927F86D1FE4745100590F42 /* KeyValues.swift */; };
 		7927F8701FE4759500590F42 /* UIView+Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927F86F1FE4759500590F42 /* UIView+Ambience.swift */; };
 		79C381E61FFD354A00C5E4D6 /* UINavigationBar+Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C381E51FFD354A00C5E4D6 /* UINavigationBar+Ambience.swift */; };
+		79C381EA1FFD49F600C5E4D6 /* Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C381E91FFD49F600C5E4D6 /* Ambience.swift */; };
+		79C381EC1FFD4BF900C5E4D6 /* AmbienceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C381EB1FFD4BF900C5E4D6 /* AmbienceLabel.swift */; };
 		79E74B571FFD06AC00AF3AA1 /* AmbienceConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B511FFD06AB00AF3AA1 /* AmbienceConstraint.swift */; };
 		79E74B591FFD06AC00AF3AA1 /* AmbienceListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B531FFD06AB00AF3AA1 /* AmbienceListener.swift */; };
 		79E74B5A1FFD06AC00AF3AA1 /* AmbienceStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B541FFD06AB00AF3AA1 /* AmbienceStates.swift */; };
-		79E74B5B1FFD06AC00AF3AA1 /* Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B551FFD06AB00AF3AA1 /* Ambience.swift */; };
+		79E74B5B1FFD06AC00AF3AA1 /* AmbienceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B551FFD06AB00AF3AA1 /* AmbienceObject.swift */; };
 		79E74B5C1FFD06AC00AF3AA1 /* NSObject+NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B561FFD06AC00AF3AA1 /* NSObject+NotificationManager.swift */; };
 		79E74B651FFD06B300AF3AA1 /* UITextView+Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B5D1FFD06B300AF3AA1 /* UITextView+Ambience.swift */; };
 		79E74B671FFD06B300AF3AA1 /* UIButton+Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B5F1FFD06B300AF3AA1 /* UIButton+Ambience.swift */; };
@@ -59,10 +61,12 @@
 		7927F86D1FE4745100590F42 /* KeyValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyValues.swift; path = Ambience/Classes/KeyValues.swift; sourceTree = "<group>"; };
 		7927F86F1FE4759500590F42 /* UIView+Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ambience.swift"; sourceTree = "<group>"; };
 		79C381E51FFD354A00C5E4D6 /* UINavigationBar+Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Ambience.swift"; sourceTree = "<group>"; };
+		79C381E91FFD49F600C5E4D6 /* Ambience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ambience.swift; path = Ambience/Classes/Ambience.swift; sourceTree = "<group>"; };
+		79C381EB1FFD4BF900C5E4D6 /* AmbienceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbienceLabel.swift; path = Ambience/Classes/AmbienceLabel.swift; sourceTree = "<group>"; };
 		79E74B511FFD06AB00AF3AA1 /* AmbienceConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbienceConstraint.swift; path = Ambience/Classes/AmbienceConstraint.swift; sourceTree = "<group>"; };
 		79E74B531FFD06AB00AF3AA1 /* AmbienceListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbienceListener.swift; path = Ambience/Classes/AmbienceListener.swift; sourceTree = "<group>"; };
 		79E74B541FFD06AB00AF3AA1 /* AmbienceStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbienceStates.swift; path = Ambience/Classes/AmbienceStates.swift; sourceTree = "<group>"; };
-		79E74B551FFD06AB00AF3AA1 /* Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Ambience.swift; path = Ambience/Classes/Ambience.swift; sourceTree = "<group>"; };
+		79E74B551FFD06AB00AF3AA1 /* AmbienceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbienceObject.swift; path = Ambience/Classes/AmbienceObject.swift; sourceTree = "<group>"; };
 		79E74B561FFD06AC00AF3AA1 /* NSObject+NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSObject+NotificationManager.swift"; path = "Ambience/Classes/NSObject+NotificationManager.swift"; sourceTree = "<group>"; };
 		79E74B5D1FFD06B300AF3AA1 /* UITextView+Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Ambience.swift"; sourceTree = "<group>"; };
 		79E74B5F1FFD06B300AF3AA1 /* UIButton+Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ambience.swift"; sourceTree = "<group>"; };
@@ -179,7 +183,9 @@
 		8A596E3EE2A3E84B01090DA992888C60 /* Ambience */ = {
 			isa = PBXGroup;
 			children = (
-				79E74B551FFD06AB00AF3AA1 /* Ambience.swift */,
+				79C381E91FFD49F600C5E4D6 /* Ambience.swift */,
+				79E74B551FFD06AB00AF3AA1 /* AmbienceObject.swift */,
+				79C381EB1FFD4BF900C5E4D6 /* AmbienceLabel.swift */,
 				79E74B511FFD06AB00AF3AA1 /* AmbienceConstraint.swift */,
 				79E74B531FFD06AB00AF3AA1 /* AmbienceListener.swift */,
 				79E74B541FFD06AB00AF3AA1 /* AmbienceStates.swift */,
@@ -379,6 +385,7 @@
 			files = (
 				79E74B571FFD06AC00AF3AA1 /* AmbienceConstraint.swift in Sources */,
 				0AA2E8FCA33DC5A81F9F69BA15E6F7F7 /* Ambience-dummy.m in Sources */,
+				79C381EC1FFD4BF900C5E4D6 /* AmbienceLabel.swift in Sources */,
 				7927F8701FE4759500590F42 /* UIView+Ambience.swift in Sources */,
 				79E74B691FFD06B300AF3AA1 /* UISearchBar+Ambience.swift in Sources */,
 				79E74B651FFD06B300AF3AA1 /* UITextView+Ambience.swift in Sources */,
@@ -388,8 +395,9 @@
 				79E74B6A1FFD06B300AF3AA1 /* UITabBar+Ambience.swift in Sources */,
 				79E74B5C1FFD06AC00AF3AA1 /* NSObject+NotificationManager.swift in Sources */,
 				7927F86E1FE4745100590F42 /* KeyValues.swift in Sources */,
-				79E74B5B1FFD06AC00AF3AA1 /* Ambience.swift in Sources */,
+				79E74B5B1FFD06AC00AF3AA1 /* AmbienceObject.swift in Sources */,
 				79E74B5A1FFD06AC00AF3AA1 /* AmbienceStates.swift in Sources */,
+				79C381EA1FFD49F600C5E4D6 /* Ambience.swift in Sources */,
 				79E74B591FFD06AC00AF3AA1 /* AmbienceListener.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

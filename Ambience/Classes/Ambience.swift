@@ -19,6 +19,18 @@ public class Ambience {
     
     public static var shared : Ambience = Ambience()
     
+    public static var forcedState : AmbienceState? = nil {
+        didSet {
+            if let forcedState = self.forcedState {
+                self.currentState = forcedState
+            } else {
+                self.shared.checkBrightnessValue()
+                let currentState = self.currentState
+                self.currentState = currentState
+            }
+        }
+    }
+    
     public static var previousState : AmbienceState = .regular
     public static var currentState : AmbienceState = .regular {
         willSet {
@@ -59,6 +71,9 @@ public class Ambience {
         processConstraints(forBrightness : UIScreen.main.brightness)
     }
     @objc public func brightnessDidChange (notification : NSNotification) {
+        
+        if Ambience.forcedState != nil { return }
+        
         checkBrightnessValue()
     }
     
