@@ -9,7 +9,7 @@ import UIKit
 
 extension UITabBar {
     
-    public override func ambience(_ notification : Notification) {
+    open override func ambience(_ notification : Notification) {
         
         super.ambience(notification)
         

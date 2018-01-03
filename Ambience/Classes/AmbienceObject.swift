@@ -9,36 +9,64 @@ import UIKit
 
 class AmbienceObject : NSObject {
     
+    @IBInspectable var invertAvailable : Bool = true
+    @IBInspectable var invertLabel : String = "Invert"
+    
+    @IBInspectable var regularAvailable : Bool = true
+    @IBInspectable var regularLabel : String = "Regular"
+    
+    @IBInspectable var contrastAvailable : Bool = true
+    @IBInspectable var contrastLabel : String = "Contrast"
+    
+    @IBInspectable var autoAvailable : Bool = true
+    @IBInspectable var autoLabel : String = "Auto"
+    
     @IBOutlet weak var viewController : UIViewController?
     
     @IBAction func switchAmbience (_ sender : AnyObject) {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let switchToInvert = UIAlertAction(title: "Invert", style: .default) {
-            _ in
-            Ambience.forcedState = .invert
-        }
-        let switchToContrast = UIAlertAction(title: "Contrast", style: .default) {
-            _ in
-            Ambience.forcedState = .contrast
-        }
-        let switchToRegular = UIAlertAction(title: "Regular", style: .default) {
-            _ in
-            Ambience.forcedState = .regular
+        if invertAvailable {
+            
+            let action = UIAlertAction(title: invertLabel, style: .default) {
+                _ in
+                Ambience.forcedState = .invert
+            }
+            
+            actionSheet.addAction(action)
         }
         
-        let switchToAuto = UIAlertAction(title: "Auto", style: .default) {
-            _ in
-            Ambience.forcedState = nil
+        if contrastAvailable {
+            
+            let action = UIAlertAction(title: contrastLabel, style: .default) {
+                _ in
+                Ambience.forcedState = .contrast
+            }
+            
+            actionSheet.addAction(action)
         }
         
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        if regularAvailable {
+            
+            let action = UIAlertAction(title: regularLabel, style: .default) {
+                _ in
+                Ambience.forcedState = .regular
+            }
+            
+            actionSheet.addAction(action)
+        }
         
-        actionSheet.addAction(switchToInvert)
-        actionSheet.addAction(switchToContrast)
-        actionSheet.addAction(switchToRegular)
-        actionSheet.addAction(switchToAuto)
-        actionSheet.addAction(cancel)
+        if autoAvailable {
+            
+            let action = UIAlertAction(title: autoLabel, style: .default) {
+                _ in
+                Ambience.forcedState = nil
+            }
+            
+            actionSheet.addAction(action)
+        }
+
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         viewController?.present(actionSheet, animated: true)
     }

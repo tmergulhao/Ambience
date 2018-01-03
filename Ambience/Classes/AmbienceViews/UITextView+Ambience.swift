@@ -48,7 +48,7 @@ extension UITextView {
         set { objc_setAssociatedObject(self, &KeyValues.regular.textColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
-    public override func ambience(_ notification : Notification) {
+    open override func ambience(_ notification : Notification) {
         
         super.ambience(notification)
         

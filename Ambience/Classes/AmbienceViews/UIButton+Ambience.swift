@@ -42,14 +42,14 @@ extension UIButton {
                 return value
             }
             
-            self.textColorRegular = self.tintColor ?? .black
+            self.textColorRegular = self.titleColor(for: .normal) ?? .black
             
             return self.textColorRegular
         }
         set { objc_setAssociatedObject(self, &KeyValues.regular.textColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
-    public override func ambience(_ notification : Notification) {
+    open override func ambience(_ notification : Notification) {
         
         super.ambience(notification)
         
@@ -66,7 +66,6 @@ extension UIButton {
                 }() ?? self.tintColor
             
             self.setTitleColor(color, for: .normal)
-            self.tintColor = color
             
         } else {
             
@@ -80,8 +79,8 @@ extension UIButton {
                     }() ?? self.tintColor
                 
                 self.setTitleColor(color, for: .normal)
-                self.tintColor = color
             }
         }
     }
 }
+

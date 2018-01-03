@@ -9,7 +9,7 @@ import UIKit
 
 extension UINavigationBar {
     
-    public override func ambience(_ notification : Notification) {
+    open override func ambience(_ notification : Notification) {
         
         super.ambience(notification)
         

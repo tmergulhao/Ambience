@@ -9,6 +9,11 @@ import UIKit
 
 public class AmbienceLabel : UILabel {
     
+    @IBInspectable var contrastLabel : String?
+    @IBInspectable var invertLabel : String?
+    @IBInspectable var regularLabel : String?
+    @IBInspectable var autoLabel : String?
+    
     override public func ambience(_ notification: Notification) {
         
         super.ambience(notification)
@@ -20,9 +25,21 @@ public class AmbienceLabel : UILabel {
             let aditionalText = Ambience.forcedState == nil ? "" : " (Forced)"
             
             switch currentState {
-            case .contrast: return "Contrast" + aditionalText
-            case .invert: return "Invert" + aditionalText
-            case .regular: return "Regular" + aditionalText
+            case .contrast:
+                if let label = contrastLabel {
+                    return label
+                }
+                return "Contrast" + aditionalText
+            case .invert:
+                if let label = invertLabel {
+                    return label
+                }
+                return "Invert" + aditionalText
+            case .regular:
+                if let label = regularLabel {
+                    return label
+                }
+                return "Regular" + aditionalText
             }
         }()
     }

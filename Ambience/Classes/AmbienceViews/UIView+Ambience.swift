@@ -48,7 +48,7 @@ extension UIView {
         set { objc_setAssociatedObject(self, &KeyValues.regular.backgroundColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
-    @objc override public func ambience(_ notification: Notification) {
+    @objc override open func ambience(_ notification: Notification) {
         
         super.ambience(notification)
         
