@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Ambience'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of Ambience.'
+  s.summary          = 'An ambient light accessibility framework for iOS.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Ambience, a brightness aware ambient lightning accessibility framework. Although Apple has yet to publicize the APIs for the ambient light sensor, it does let a given app look for screen brightness events. And that’s exactly what Ambience does. It listens to events and relays state thresholds to your app so it can adapt its looks and layout.
                        DESC
 
   s.homepage         = 'https://github.com/tmergulhao/Ambience'
