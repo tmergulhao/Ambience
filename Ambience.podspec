@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Ambience'
-  s.version          = '0.0.3'
+  s.version          = '0.0.4'
   s.summary          = 'An ambient light accessibility framework for iOS.'
 
 # This description is used to generate tags and improve search results.

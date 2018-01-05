@@ -9,7 +9,7 @@ import UIKit
 
 extension UISearchBar {
     
-    open override func ambience(_ notification : Notification) {
+    override open func ambience(_ notification : Notification) {
         
         super.ambience(notification)
         

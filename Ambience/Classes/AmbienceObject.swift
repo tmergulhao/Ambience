@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AmbienceObject : NSObject {
+open class AmbienceObject : NSObject {
     
     @IBInspectable var invertAvailable : Bool = true
     @IBInspectable var invertLabel : String = "Invert"

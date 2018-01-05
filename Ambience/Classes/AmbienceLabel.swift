@@ -7,14 +7,14 @@
 
 import UIKit
 
-public class AmbienceLabel : UILabel {
+open class AmbienceLabel : UILabel {
     
     @IBInspectable var contrastLabel : String?
     @IBInspectable var invertLabel : String?
     @IBInspectable var regularLabel : String?
     @IBInspectable var autoLabel : String?
     
-    override public func ambience(_ notification: Notification) {
+    override open func ambience(_ notification: Notification) {
         
         super.ambience(notification)
         

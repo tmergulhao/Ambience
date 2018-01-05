@@ -67,5 +67,5 @@ extension NSObject {
 
 extension NSObject : AmbienceListener {
     
-    @objc public func ambience(_ notification: Notification) {}
+    @objc open func ambience(_ notification: Notification) {}
 }
