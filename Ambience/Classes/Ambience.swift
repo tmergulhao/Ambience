@@ -52,6 +52,13 @@ public class Ambience {
         }
     }
     
+    public static func reinstateAmbience (for listener : AmbienceListener) {
+        
+        let notification : Notification = Notification(name: Notification.Name.STAmbienceDidChange, object: nil, userInfo: ["previousState" : previousState, "currentState": currentState])
+        
+        listener.ambience(notification)
+    }
+    
     internal func processConstraints (forBrightness brightness : Brightness) {
         
         let acceptableStates : AmbienceStates = constraints.filter{
@@ -70,6 +77,7 @@ public class Ambience {
     internal func checkBrightnessValue () {
         processConstraints(forBrightness : UIScreen.main.brightness)
     }
+    
     @objc public func brightnessDidChange (notification : NSNotification) {
         
         if Ambience.forcedState != nil { return }
@@ -85,6 +93,8 @@ public class Ambience {
     }
     
     internal init () {
+        
+        UIView.classInit
         
         NotificationCenter.default.addObserver(self,
             selector: #selector(brightnessDidChange),

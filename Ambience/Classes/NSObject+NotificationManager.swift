@@ -7,7 +7,7 @@
 
 import UIKit
 
-fileprivate class NotificationManager {
+internal class NotificationManager {
     
     weak var observer : NSObject?
     
@@ -29,6 +29,50 @@ fileprivate class NotificationManager {
 
 private var notificationManagerKey = "notificationManagerKey"
 
+internal extension NSObject {
+    
+    internal class func swizzling (forClass : AnyClass, originalSelector : Selector, swizzledSelector : Selector) {
+        
+        guard let originalMethod = class_getInstanceMethod(forClass, originalSelector) else { return }
+        guard let swizzledMethod = class_getInstanceMethod(forClass, swizzledSelector) else { return }
+        
+        method_exchangeImplementations(originalMethod, swizzledMethod)
+    }
+}
+
+extension NSObject {
+    
+    static let forbiddenNames : Set<String> = [
+        "NSLayoutConstraint",
+        "UICollectionViewFlowLayout",
+        "_UILayoutGuide",
+        "UILayoutGuide",
+    ]
+    
+    static let earlyAdopters : Set<String> = [
+        "UINavigationBar",
+        "UITabBar"
+    ]
+    
+    static let classInit : Void = {
+
+        swizzling(forClass: UIView.self, originalSelector: #selector(awakeFromNib), swizzledSelector: #selector(swizzled_awakeFromNib))
+    }()
+    
+    @objc open func swizzled_awakeFromNib () {
+        
+        let name = String(describing:type(of: self))
+        
+        guard !NSObject.forbiddenNames.contains(name) else { return }
+        
+        swizzled_awakeFromNib()
+        
+        if ambience {
+            _ = notificationManager
+        }
+    }
+}
+
 extension NSObject {
     
     @IBInspectable public var ambience : Bool {
@@ -42,7 +86,9 @@ extension NSObject {
         }
         set {
             
-            if newValue {
+            let name = String(describing:type(of: self))
+            
+            if NSObject.earlyAdopters.contains(name) && newValue {
                 _ = self.notificationManager
             }
             
@@ -50,7 +96,7 @@ extension NSObject {
         }
     }
     
-    fileprivate var notificationManager: NotificationManager {
+    internal var notificationManager: NotificationManager {
         get {
             if let manager = objc_getAssociatedObject(self, &KeyValues.notificationManager) as? NotificationManager {
                 return manager

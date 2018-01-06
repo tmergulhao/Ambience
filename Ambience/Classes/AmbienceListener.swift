@@ -9,7 +9,18 @@
 import UIKit
 
 @objc public protocol AmbienceListener {
+    
+    @objc var ambience : Bool { get set }
+    
     @objc func ambience (_ notification : Notification)
+}
+
+extension AmbienceListener {
+    
+    public func reinstateAmbience () {
+        
+        Ambience.reinstateAmbience(for: self)
+    }
 }
 
 public extension Ambience {
@@ -22,11 +33,7 @@ public extension Ambience {
         
         let notification : Notification = Notification(name: Notification.Name.STAmbienceDidChange, object: nil, userInfo: ["previousState" : AmbienceState.regular, "currentState": currentState, "animated": false])
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
-            
-            listener.ambience(notification)
-        }
-        
+        listener.ambience(notification)
     }
     
     public class func remove (listener : AmbienceListener) {

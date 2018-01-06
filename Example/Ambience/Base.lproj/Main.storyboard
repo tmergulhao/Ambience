@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -54,12 +55,6 @@ In that dream I choose my own colors.</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm not trying to convince you I'm different" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWS-iR-HcO">
-                                <rect key="frame" x="26" y="241" width="322" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y66-RZ-EmC" customClass="AmbienceLabel" customModule="Ambience">
                                 <rect key="frame" x="166" y="490" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -78,10 +73,8 @@ In that dream I choose my own colors.</string>
                         </subviews>
                         <color key="backgroundColor" red="0.96999612630499998" green="0.96999999999999997" blue="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="sWS-iR-HcO" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="I19-dd-8Ll"/>
                             <constraint firstItem="y66-RZ-EmC" firstAttribute="top" secondItem="hii-uO-ezh" secondAttribute="bottom" constant="93" id="LpX-ej-G5S"/>
                             <constraint firstItem="oQH-rm-jV0" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="PzZ-dO-zbe"/>
-                            <constraint firstItem="oQH-rm-jV0" firstAttribute="top" secondItem="sWS-iR-HcO" secondAttribute="bottom" constant="52" id="QlN-Um-8Kt"/>
                             <constraint firstItem="hii-uO-ezh" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="kkG-fd-Voo"/>
                             <constraint firstItem="hii-uO-ezh" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="nLd-Lk-xRI"/>
                             <constraint firstItem="y66-RZ-EmC" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="uTN-qf-zZU"/>
@@ -97,7 +90,7 @@ In that dream I choose my own colors.</string>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" id="G3D-I4-xOd">
+                    <navigationItem key="navigationItem" title="View" id="G3D-I4-xOd">
                         <barButtonItem key="rightBarButtonItem" title="Ambience" id="15f-dt-mEx">
                             <connections>
                                 <action selector="switchAmbience:" destination="tff-oA-QJz" id="OG5-Wm-xEI"/>
@@ -112,7 +105,7 @@ In that dream I choose my own colors.</string>
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="-495" y="1558"/>
+            <point key="canvasLocation" x="-156" y="1595"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JNd-MS-68R">
@@ -128,66 +121,209 @@ In that dream I choose my own colors.</string>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="pDz-7P-uRC" kind="relationship" relationship="viewControllers" id="rtx-l6-4PN"/>
+                        <segue destination="job-7k-rhQ" kind="relationship" relationship="viewControllers" id="rtx-l6-4PN"/>
                         <segue destination="rTA-Ra-nWK" kind="relationship" relationship="viewControllers" id="aSR-TO-DZ3"/>
-                        <segue destination="TO0-bT-CJs" kind="relationship" relationship="viewControllers" id="amC-bz-wrG"/>
+                        <segue destination="kjm-BA-JF8" kind="relationship" relationship="viewControllers" id="amC-bz-wrG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0SO-et-Sfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-495" y="-40"/>
         </scene>
-        <!--Item-->
+        <!--Table-->
         <scene sceneID="9Bk-0g-CqQ">
             <objects>
-                <tableViewController id="pDz-7P-uRC" sceneMemberID="viewController">
+                <tableViewController id="pDz-7P-uRC" customClass="TableViewController" customModule="Ambience_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oF5-fb-JYJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="158" id="Zpe-9x-4bZ">
-                                <rect key="frame" x="0.0" y="28" width="375" height="158"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell with image" rowHeight="173" id="Zpe-9x-4bZ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="173"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zpe-9x-4bZ" id="vPk-Hy-KBR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="157.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="172.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaS-uu-xoJ">
-                                            <rect key="frame" x="16" y="68" width="343" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaS-uu-xoJ">
+                                            <rect key="frame" x="96" y="11" width="263" height="24"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="textColorInvert">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="textColorContrast">
+                                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Favicon" translatesAutoresizingMaskIntoConstraints="NO" id="It8-Lz-Lbx">
+                                            <rect key="frame" x="16" y="11" width="64" height="64"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="64" id="bAe-lj-VDp"/>
+                                                <constraint firstAttribute="height" constant="64" id="gvA-4v-wq3"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="invertColor">
+                                                    <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="contrastColor">
+                                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wk-wJ-PJQ">
+                                            <rect key="frame" x="96" y="43" width="263" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="textColorInvert">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="textColorContrast">
+                                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGL-jp-0x4">
+                                            <rect key="frame" x="96" y="147.5" width="263" height="14.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="textColorInvert">
+                                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="textColorContrast">
+                                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6ZO-bX-ot5">
+                                            <rect key="frame" x="96" y="72" width="263" height="67.5"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="DaS-uu-xoJ" secondAttribute="trailing" constant="16" id="2an-ia-XXi"/>
-                                        <constraint firstAttribute="bottom" secondItem="DaS-uu-xoJ" secondAttribute="bottom" constant="68.5" id="MVW-sp-IRC"/>
-                                        <constraint firstItem="DaS-uu-xoJ" firstAttribute="leading" secondItem="vPk-Hy-KBR" secondAttribute="leading" constant="16" id="em3-Tu-PKI"/>
-                                        <constraint firstItem="DaS-uu-xoJ" firstAttribute="top" secondItem="vPk-Hy-KBR" secondAttribute="top" constant="68" id="tB3-en-mHU"/>
+                                        <constraint firstItem="sGL-jp-0x4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5wk-wJ-PJQ" secondAttribute="bottom" constant="8" id="9f3-Ts-Q5V"/>
+                                        <constraint firstItem="It8-Lz-Lbx" firstAttribute="leading" secondItem="vPk-Hy-KBR" secondAttribute="leadingMargin" id="CHo-N0-QYK"/>
+                                        <constraint firstItem="DaS-uu-xoJ" firstAttribute="top" secondItem="vPk-Hy-KBR" secondAttribute="topMargin" id="H3R-lU-5zs"/>
+                                        <constraint firstItem="5wk-wJ-PJQ" firstAttribute="top" secondItem="DaS-uu-xoJ" secondAttribute="bottom" constant="8" id="HdW-bO-EX3"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="It8-Lz-Lbx" secondAttribute="bottom" constant="8" id="I34-oM-qdG"/>
+                                        <constraint firstItem="6ZO-bX-ot5" firstAttribute="leading" secondItem="It8-Lz-Lbx" secondAttribute="trailing" constant="16" id="IbT-X1-W1k"/>
+                                        <constraint firstItem="sGL-jp-0x4" firstAttribute="leading" secondItem="It8-Lz-Lbx" secondAttribute="trailing" constant="16" id="NDe-2N-Z7g"/>
+                                        <constraint firstItem="sGL-jp-0x4" firstAttribute="bottom" secondItem="vPk-Hy-KBR" secondAttribute="bottomMargin" id="Nna-t0-Kia"/>
+                                        <constraint firstItem="DaS-uu-xoJ" firstAttribute="trailing" secondItem="vPk-Hy-KBR" secondAttribute="trailingMargin" id="UMX-Cg-gxk"/>
+                                        <constraint firstItem="DaS-uu-xoJ" firstAttribute="leading" secondItem="It8-Lz-Lbx" secondAttribute="trailing" constant="16" id="Xfi-FC-KYB"/>
+                                        <constraint firstItem="5wk-wJ-PJQ" firstAttribute="top" secondItem="DaS-uu-xoJ" secondAttribute="bottom" constant="8" id="YZH-NR-GAv"/>
+                                        <constraint firstItem="It8-Lz-Lbx" firstAttribute="top" secondItem="vPk-Hy-KBR" secondAttribute="topMargin" id="aSZ-am-omY"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="5wk-wJ-PJQ" secondAttribute="bottom" constant="8" id="bZN-cH-yhl"/>
+                                        <constraint firstItem="5wk-wJ-PJQ" firstAttribute="trailing" secondItem="vPk-Hy-KBR" secondAttribute="trailingMargin" id="bzc-0T-FK9"/>
+                                        <constraint firstItem="sGL-jp-0x4" firstAttribute="top" secondItem="6ZO-bX-ot5" secondAttribute="bottom" constant="8" id="eBR-xH-2Cr"/>
+                                        <constraint firstItem="6ZO-bX-ot5" firstAttribute="trailing" secondItem="vPk-Hy-KBR" secondAttribute="trailingMargin" id="ejg-0l-dcE"/>
+                                        <constraint firstItem="6ZO-bX-ot5" firstAttribute="top" secondItem="5wk-wJ-PJQ" secondAttribute="bottom" constant="8" id="j1B-mX-AZr"/>
+                                        <constraint firstItem="5wk-wJ-PJQ" firstAttribute="leading" secondItem="It8-Lz-Lbx" secondAttribute="trailing" constant="16" id="p73-Ix-oKj"/>
+                                        <constraint firstItem="sGL-jp-0x4" firstAttribute="trailing" secondItem="vPk-Hy-KBR" secondAttribute="trailingMargin" id="qv0-H3-D5U"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="invertColor">
+                                        <color key="value" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="contrastColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell with text" rowHeight="301" id="Pvi-Lg-8GI" customClass="TextTableCell" customModule="Ambience_Example" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="201" width="375" height="301"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pvi-Lg-8GI" id="evL-5O-DAe">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="300.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DdF-1n-Gfq">
+                                            <rect key="frame" x="16" y="11" width="343" height="279"/>
+                                            <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+                                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="textColorRegular">
+                                                    <color key="value" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="textColorInvert">
+                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="textColorContrast">
+                                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="DdF-1n-Gfq" firstAttribute="leading" secondItem="evL-5O-DAe" secondAttribute="leadingMargin" id="X2A-OA-2Qe"/>
+                                        <constraint firstItem="DdF-1n-Gfq" firstAttribute="bottom" secondItem="evL-5O-DAe" secondAttribute="bottomMargin" id="dZz-dM-2Gq"/>
+                                        <constraint firstItem="DdF-1n-Gfq" firstAttribute="top" secondItem="evL-5O-DAe" secondAttribute="topMargin" id="run-fD-w9M"/>
+                                        <constraint firstItem="DdF-1n-Gfq" firstAttribute="trailing" secondItem="evL-5O-DAe" secondAttribute="trailingMargin" id="yer-6S-Iry"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="invertColor">
+                                        <color key="value" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="contrastColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="textView" destination="DdF-1n-Gfq" id="vDq-aD-pIU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="contrastColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="invertColor">
+                                <color key="value" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="pDz-7P-uRC" id="wSt-kT-EGw"/>
                             <outlet property="delegate" destination="pDz-7P-uRC" id="vJj-rs-OKx"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="ihm-Zf-Xt3"/>
+                    <navigationItem key="navigationItem" title="Table" id="k0P-JT-ca8"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zn2-1o-pjR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1244" y="805.54722638680664"/>
+            <point key="canvasLocation" x="-866.39999999999998" y="1593.5532233883059"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--View-->
         <scene sceneID="Q9k-ih-cI7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rTA-Ra-nWK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="fy6-4r-EeB"/>
+                    <tabBarItem key="tabBarItem" title="View" image="Tab bar/View" id="fy6-4r-EeB"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZNl-dL-XVB">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ZNl-dL-XVB">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
@@ -200,9 +336,9 @@ In that dream I choose my own colors.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MiV-vV-ufp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-495" y="806"/>
+            <point key="canvasLocation" x="-156" y="805.54722638680664"/>
         </scene>
-        <!--Item-->
+        <!--Collection-->
         <scene sceneID="R3Q-6u-DYx">
             <objects>
                 <collectionViewController id="TO0-bT-CJs" sceneMemberID="viewController">
@@ -226,16 +362,78 @@ In that dream I choose my own colors.</string>
                                 </view>
                             </collectionViewCell>
                         </cells>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="contrastColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="invertColor">
+                                <color key="value" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="TO0-bT-CJs" id="25g-Pc-H9U"/>
                             <outlet property="delegate" destination="TO0-bT-CJs" id="Nh4-ba-KMQ"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="xst-Qp-baw"/>
+                    <navigationItem key="navigationItem" title="Collection" id="xdl-RK-MsZ"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TR8-Tx-lHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="242" y="806"/>
+            <point key="canvasLocation" x="578" y="1594"/>
+        </scene>
+        <!--Table-->
+        <scene sceneID="IPG-x5-MWX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="job-7k-rhQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Table" image="Tab bar/Table" id="ihm-Zf-Xt3"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ddl-9q-qc0">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pDz-7P-uRC" kind="relationship" relationship="rootViewController" id="3MR-w6-bdo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lQM-El-a6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-866" y="806"/>
+        </scene>
+        <!--Collection-->
+        <scene sceneID="c9y-c6-Jcj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kjm-BA-JF8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Collection" image="Tab bar/Collection" id="xst-Qp-baw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ilH-X3-pOp">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TO0-bT-CJs" kind="relationship" relationship="rootViewController" id="bfL-oW-Bjw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fr6-da-xB6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="579.20000000000005" y="805.09745127436292"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Favicon" width="120" height="120"/>
+        <image name="Tab bar/Collection" width="31" height="28"/>
+        <image name="Tab bar/Table" width="31" height="28"/>
+        <image name="Tab bar/View" width="31" height="28"/>
+    </resources>
 </document>

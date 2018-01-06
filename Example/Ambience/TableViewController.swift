@@ -1,0 +1,55 @@
+//
+//  TableViewController.swift
+//  Ambience_Example
+//
+//  Created by Tiago Mergulhão on 06/01/2018.
+//  Copyright © 2018 CocoaPods. All rights reserved.
+//
+
+import UIKit
+import GameplayKit
+
+class TableViewController : UITableViewController {
+    
+    let cells : Array<String> = (Array(0...(GKRandomSource.sharedRandom().nextInt(upperBound: 40)))).map({
+        
+       _ in
+        
+        let random = GKRandomSource.sharedRandom().nextInt(upperBound: 2)
+        
+        switch random {
+        case 0:
+            return "Cell with image"
+        default:
+            return "Cell with text"
+        }
+    })
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cells.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell : UITableViewCell!
+        
+        let random = GKRandomSource.sharedRandom().nextInt(upperBound: 2)
+        
+        switch random {
+        case 0:
+            cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.row])
+        default:
+            let someCell = tableView.dequeueReusableCell(withIdentifier: "Cell with text") as! TextTableCell
+            
+            someCell.textView?.reinstateAmbience()
+            
+            cell = someCell
+        }
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+}

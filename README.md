@@ -57,6 +57,32 @@ it, simply add the following line to your Podfile:
 pod 'Ambience'
 ```
 
+## Known issues
+
+### Text View inside collection
+
+If you are using a **Text View** inside a **Table View Cell** or a **Collection View Cell** and, in the process of dequeuing it you set its attributed text, beware. Right after assigning the new **Attributed Text** will need to write a mandatory single line of code to have **Ambience** work in the **Text View** properly.
+
+Follow the example:
+
+```swift
+
+// Inside the respective Table View Controller
+
+override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    let cell : TextTableCell! = tableView.dequeueReusableCell(withIdentifier: "Cell with text") as! TextTableCell
+    
+    cell.textView?.reinstateAmbience()
+    
+    return cell
+}
+```
+
+It's simple, but mandatory.
+
+I could have set some observers inside **Text View** so it could perform it on its own, but I won't do it at the risk of referencing cycles and swizzling madness.
+
 ## Author
 
 tmergulhao, me@tmergulhao.com

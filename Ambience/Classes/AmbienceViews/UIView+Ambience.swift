@@ -52,6 +52,8 @@ extension UIView {
         
         super.ambience(notification)
         
+        _ = self.regularColor
+        
         guard let currentState = notification.userInfo?["currentState"] as? AmbienceState else { return }
         
         if let animated = notification.userInfo?["animated"] as? Bool, animated == false {
