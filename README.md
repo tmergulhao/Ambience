@@ -10,6 +10,8 @@ Brightness aware accessibility theme switching without coding.
 [![License](https://img.shields.io/cocoapods/l/Ambience.svg?style=flat)](http://cocoapods.org/pods/Ambience)
 [![Platform](https://img.shields.io/cocoapods/p/Ambience.svg?style=flat)](http://cocoapods.org/pods/Ambience)
 
+![Ambience States](Readme%20media/Ambience%20States.jpeg)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -131,7 +133,7 @@ If you don't know what **swizzling** is, here goes a little explanation.
 
 Swizzling two methods is nothing but swapping two method **addresses**. What do I mean by addess? Why did I do this?
 
-I wanted every **UIView** to have access to **Ambience**. To have that, I had to do some configuration in the **UIView** before it reaches the devices screen. I chose to do this in the **Awake From Nib** method because it's guaranteed to be called right before the view hits the screen and on most of the **UIView** objects, such as **Navigation Bar**, **Search Bar** and **Tab Bar**, that have a a different lifecycle from a regular **UIView**.
+I wanted every **UIView** to have access to **Ambience**. To have that, I had to do some configuration in the **UIView** before it reaches the device's screen. I chose to do this in the **Awake From Nib** method because it's guaranteed to be called right before the view hits the screen and on most of the **UIView** objects, such as **Navigation Bar**, **Search Bar** and **Tab Bar**, that have a a different lifecycle from a regular **UIView**.
 
 ```swift
 static let classInit : Void = {
@@ -153,14 +155,14 @@ static let classInit : Void = {
 }
 ```
 
-The swizzling is going to happen to the address of **Awake From Nib** but will not affect inner calls. Let me explain. When **UI Kit** calls `view.awakeFromNib()` on a **UIView**, what is actually going to happen is `view.swizzled_awakeFromNib`. Nonetheless, when `swizzled_awakeFromNib` is called inside `swizzled_awakeFromNib`, it actually calls `awakeFromNib`, thus, giving us access to the default implementation.
+The swizzling is going to happen to the address of **Awake From Nib** but will not affect inner calls. Let me explain. When **UI Kit** calls `awakeFromNib` on a **UIView**, what is actually going to happen is `view.swizzled_awakeFromNib`. Nonetheless, when `swizzled_awakeFromNib` is called inside `swizzled_awakeFromNib`, it actually calls `awakeFromNib`, thus, giving us access to the default implementation.
 
 In another words, this is a complicated way of adding this few lines to **every single UIView and any of its children**:
 
 ```swift
-    if ambience {
-        _ = notificationManager
-    }
+if ambience {
+    _ = notificationManager
+}
 ```
 
 ## Final note
