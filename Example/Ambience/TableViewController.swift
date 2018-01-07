@@ -11,6 +11,24 @@ import GameplayKit
 
 class TableViewController : UITableViewController {
     
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        if #available(iOS 11, *) {
+            
+            let searchController = UISearchController(searchResultsController: nil)
+            
+            searchController.searchResultsUpdater = self
+            
+            searchController.searchBar.placeholder = "Search for bookmarks content"
+            searchController.obscuresBackgroundDuringPresentation = true
+            definesPresentationContext = true
+            
+            navigationItem.searchController = searchController
+        }
+    }
+    
     let cells : Array<String> = (Array(0...(GKRandomSource.sharedRandom().nextInt(upperBound: 40)))).map({
         
        _ in
@@ -51,5 +69,12 @@ class TableViewController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
+    }
+}
+
+extension TableViewController : UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        return
     }
 }

@@ -19,13 +19,14 @@
 		79C381EC1FFD4BF900C5E4D6 /* AmbienceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C381EB1FFD4BF900C5E4D6 /* AmbienceLabel.swift */; };
 		79E74B571FFD06AC00AF3AA1 /* AmbienceConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B511FFD06AB00AF3AA1 /* AmbienceConstraint.swift */; };
 		79E74B591FFD06AC00AF3AA1 /* AmbienceListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B531FFD06AB00AF3AA1 /* AmbienceListener.swift */; };
-		79E74B5A1FFD06AC00AF3AA1 /* AmbienceStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B541FFD06AB00AF3AA1 /* AmbienceStates.swift */; };
+		79E74B5A1FFD06AC00AF3AA1 /* UITraitCollection+Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B541FFD06AB00AF3AA1 /* UITraitCollection+Ambience.swift */; };
 		79E74B5B1FFD06AC00AF3AA1 /* AmbienceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B551FFD06AB00AF3AA1 /* AmbienceObject.swift */; };
 		79E74B5C1FFD06AC00AF3AA1 /* NSObject+NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B561FFD06AC00AF3AA1 /* NSObject+NotificationManager.swift */; };
 		79E74B651FFD06B300AF3AA1 /* UITextView+Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B5D1FFD06B300AF3AA1 /* UITextView+Ambience.swift */; };
 		79E74B671FFD06B300AF3AA1 /* UIButton+Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B5F1FFD06B300AF3AA1 /* UIButton+Ambience.swift */; };
 		79E74B691FFD06B300AF3AA1 /* UISearchBar+Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B611FFD06B300AF3AA1 /* UISearchBar+Ambience.swift */; };
 		79E74B6A1FFD06B300AF3AA1 /* UITabBar+Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E74B621FFD06B300AF3AA1 /* UITabBar+Ambience.swift */; };
+		79EF10F42002973C00F23332 /* AmbienceStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EF10F32002973C00F23332 /* AmbienceStates.swift */; };
 		7D028A6B6ACD95F8C1A39CE4C5E689B6 /* Pods-Ambience_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E33422A1EB0F3B38DAD872E27D3EB1 /* Pods-Ambience_Example-dummy.m */; };
 		879CB4C582DC8789DB286DCBC13D6E5C /* Pods-Ambience_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 43CEEA0511C6208E69E9B0A49F8DF364 /* Pods-Ambience_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95B55C8B058968AA584B20CF1F04497C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -67,13 +68,14 @@
 		79C381EB1FFD4BF900C5E4D6 /* AmbienceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbienceLabel.swift; path = Ambience/Classes/AmbienceLabel.swift; sourceTree = "<group>"; };
 		79E74B511FFD06AB00AF3AA1 /* AmbienceConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbienceConstraint.swift; path = Ambience/Classes/AmbienceConstraint.swift; sourceTree = "<group>"; };
 		79E74B531FFD06AB00AF3AA1 /* AmbienceListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbienceListener.swift; path = Ambience/Classes/AmbienceListener.swift; sourceTree = "<group>"; };
-		79E74B541FFD06AB00AF3AA1 /* AmbienceStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbienceStates.swift; path = Ambience/Classes/AmbienceStates.swift; sourceTree = "<group>"; };
+		79E74B541FFD06AB00AF3AA1 /* UITraitCollection+Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UITraitCollection+Ambience.swift"; path = "Ambience/Classes/UITraitCollection+Ambience.swift"; sourceTree = "<group>"; };
 		79E74B551FFD06AB00AF3AA1 /* AmbienceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AmbienceObject.swift; path = Ambience/Classes/AmbienceObject.swift; sourceTree = "<group>"; };
 		79E74B561FFD06AC00AF3AA1 /* NSObject+NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSObject+NotificationManager.swift"; path = "Ambience/Classes/NSObject+NotificationManager.swift"; sourceTree = "<group>"; };
 		79E74B5D1FFD06B300AF3AA1 /* UITextView+Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Ambience.swift"; sourceTree = "<group>"; };
 		79E74B5F1FFD06B300AF3AA1 /* UIButton+Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ambience.swift"; sourceTree = "<group>"; };
 		79E74B611FFD06B300AF3AA1 /* UISearchBar+Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Ambience.swift"; sourceTree = "<group>"; };
 		79E74B621FFD06B300AF3AA1 /* UITabBar+Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+Ambience.swift"; sourceTree = "<group>"; };
+		79EF10F32002973C00F23332 /* AmbienceStates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmbienceStates.swift; path = Ambience/Classes/AmbienceStates.swift; sourceTree = "<group>"; };
 		834A9F551640A2C3CCC88138084F4B9D /* Ambience-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Ambience-dummy.m"; sourceTree = "<group>"; };
 		8F5951867B8F3FE012323EDD74FA29A7 /* Pods_Ambience_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambience_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		919DDF71877DD3CDC1250BE1B1C27CA7 /* Pods-Ambience_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Ambience_Example.modulemap"; sourceTree = "<group>"; };
@@ -190,7 +192,8 @@
 				79C381EB1FFD4BF900C5E4D6 /* AmbienceLabel.swift */,
 				79E74B511FFD06AB00AF3AA1 /* AmbienceConstraint.swift */,
 				79E74B531FFD06AB00AF3AA1 /* AmbienceListener.swift */,
-				79E74B541FFD06AB00AF3AA1 /* AmbienceStates.swift */,
+				79EF10F32002973C00F23332 /* AmbienceStates.swift */,
+				79E74B541FFD06AB00AF3AA1 /* UITraitCollection+Ambience.swift */,
 				79E74B561FFD06AC00AF3AA1 /* NSObject+NotificationManager.swift */,
 				7927F86D1FE4745100590F42 /* KeyValues.swift */,
 				FBCC73161FE4482300263576 /* AmbienceViews */,
@@ -393,6 +396,7 @@
 				79E74B691FFD06B300AF3AA1 /* UISearchBar+Ambience.swift in Sources */,
 				79E74B651FFD06B300AF3AA1 /* UITextView+Ambience.swift in Sources */,
 				79AB39AB2001372800B8415B /* StatusBarStyle+Ambience.swift in Sources */,
+				79EF10F42002973C00F23332 /* AmbienceStates.swift in Sources */,
 				79C381E61FFD354A00C5E4D6 /* UINavigationBar+Ambience.swift in Sources */,
 				79E74B671FFD06B300AF3AA1 /* UIButton+Ambience.swift in Sources */,
 				FBCC731A1FE4482300263576 /* UILabel+Ambience.swift in Sources */,
@@ -400,7 +404,7 @@
 				79E74B5C1FFD06AC00AF3AA1 /* NSObject+NotificationManager.swift in Sources */,
 				7927F86E1FE4745100590F42 /* KeyValues.swift in Sources */,
 				79E74B5B1FFD06AC00AF3AA1 /* AmbienceObject.swift in Sources */,
-				79E74B5A1FFD06AC00AF3AA1 /* AmbienceStates.swift in Sources */,
+				79E74B5A1FFD06AC00AF3AA1 /* UITraitCollection+Ambience.swift in Sources */,
 				79C381EA1FFD49F600C5E4D6 /* Ambience.swift in Sources */,
 				79E74B591FFD06AC00AF3AA1 /* AmbienceListener.swift in Sources */,
 			);

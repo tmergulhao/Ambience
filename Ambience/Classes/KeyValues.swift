@@ -17,6 +17,7 @@ internal struct KeyValues {
     
     static var notificationManager = "notificationManager"
     static var ambience = "ambience"
+    static var ambienceTrait = "ambienceTrait"
     
     static var regular =    Properties()
     static var contrast =   Properties()
