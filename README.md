@@ -18,7 +18,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-Ambience is available through [CocoaPods](http://cocoapods.org) and it's highly recomended you use it. To install it, simply add the following line to your Podfile:
+Ambience is available through [CocoaPods](http://cocoapods.org) and it's highly recommended you use it. To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'Ambience'
@@ -44,9 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-Pretty standart stuff, right?
+Pretty standard stuff, right?
 
-Ambience is so very convenient because it does a little bit of black magic under the hood. If you feel curious on how this work, scroll down to the **Nitty-Gritty** section.
+Ambience is so very convenient because it does a little bit of black magic under the hood. If you feel curious about how this work, scroll down to the **Nitty-Gritty** section.
 
 ## Built-in support
 
@@ -66,11 +66,11 @@ And there is also support for dark and light bar styles on:
 
 ## Customizing a view
 
-To customize a Interface Builder view, use the **Inspectable Properties** on the **Attributes Inspector**. Don't forget to turn **Ambience On** for that view.
+To customize an Interface Builder view, use the **Inspectable Properties** on the **Attributes Inspector**. Don't forget to turn **Ambience On** for that view.
 
 ![Attributes Inspector](Readme%20media/Attributes%20Inspector.jpeg)
 
-Search, Navigation and Tab need to be turned on but their respective styles **are not customizable**.
+Search, Navigation, and Tab need to be turned on but their respective styles **are not customizable**.
 
 ## Custom Behaviors
 
@@ -121,7 +121,7 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 }
 ```
 
-It's simple, but mandatory.
+It's simple yet mandatory.
 
 I could have set some observers inside **Text View** so it could perform it on its own, but I won't do it at the risk of referencing cycles and swizzling madness.
 
@@ -131,9 +131,9 @@ Yes. You need only a line of code to have Ambience work right out of the box. Bu
 
 If you don't know what **swizzling** is, here goes a little explanation.
 
-Swizzling two methods is nothing but swapping two method **addresses**. What do I mean by addess? Why did I do this?
+Swizzling two methods is nothing but swapping two **method addresses**. What do I mean by address? Why did I do this?
 
-I wanted every **UIView** to have access to **Ambience**. To have that, I had to do some configuration in the **UIView** before it reaches the device's screen. I chose to do this in the **Awake From Nib** method because it's guaranteed to be called right before the view hits the screen and on most of the **UIView** objects, such as **Navigation Bar**, **Search Bar** and **Tab Bar**, that have a a different lifecycle from a regular **UIView**.
+I wanted every **UIView** to have access to **Ambience**. To have that, I had to do some configuration in the **UIView** before it reaches the device's screen. I chose to do this in the **Awake From Nib** method because it's guaranteed to be called right before the view hits the screen and on most of the **UIView** objects, such as **Navigation Bar**, **Search Bar** and **Tab Bar**, that have a different lifecycle from a regular **UIView**.
 
 ```swift
 static let classInit : Void = {
@@ -157,7 +157,7 @@ static let classInit : Void = {
 
 The swizzling is going to happen to the address of **Awake From Nib** but will not affect inner calls. Let me explain. When **UI Kit** calls `awakeFromNib` on a **UIView**, what is actually going to happen is `view.swizzled_awakeFromNib`. Nonetheless, when `swizzled_awakeFromNib` is called inside `swizzled_awakeFromNib`, it actually calls `awakeFromNib`, thus, giving us access to the default implementation.
 
-In another words, this is a complicated way of adding this few lines to **every single UIView and any of its children**:
+In another word, this is a complicated way of adding this few lines to **every single UIView and any of its children**:
 
 ```swift
 if ambience {
@@ -169,7 +169,7 @@ if ambience {
 
 If you have a nice idea or think that some edit of it might apply to a larger audience, feel free to create a **pull request**.
 
-I'd like Apple to open the **Trait Environment** API so I may apply my **Trait Collection** extension and delete a few hundred lines of code. If you are there Apple: please, open it.
+I'd like Apple to open the **Trait Environment** API so I may apply for my **Trait Collection** extension and delete a few hundred lines of code. If you are there Apple: please, open it.
 
 ## Author
 
