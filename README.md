@@ -12,6 +12,12 @@ Brightness aware accessibility theme switching without coding.
 
 ![Ambience States](Readme%20media/Ambience%20States.jpeg)
 
+## Special thanks
+
+I'd like to thank [Meng To](https://github.com/MengTo) and [Marcos Griselli](https://github.com/marcosgriselli) and all the [Design+Code](https://designcode.io) team for the support given to this project. Design+Code app is the place to go if you want to learn more about design and iOS development. The app is also the App Store debut of Ambience.
+
+Thanks a lot guys!
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
