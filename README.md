@@ -16,6 +16,8 @@ Brightness aware accessibility theme switching without coding.
 
 I'd like to thank [Meng To](https://github.com/MengTo) and [Marcos Griselli](https://github.com/marcosgriselli) and all the [Design+Code](https://designcode.io) team for the support given to this project. Design+Code app is the place to go if you want to learn more about design and iOS development. The app is also the App Store debut of Ambience.
 
+You may also follow the [Ambience tutorial on](https://designcode.io/swift4-dark-mode) on Design+Code.
+
 Thanks a lot guys!
 
 ## Example
