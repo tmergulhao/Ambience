@@ -19,6 +19,8 @@ public class Ambience {
     
     public static var shared : Ambience = Ambience()
     
+    static var forcedPersistence = Default<String>(key: "STAmbienceForcedState")
+    
     public static var forcedState : AmbienceState? = nil {
         didSet {
             if let forcedState = self.forcedState {
@@ -28,6 +30,8 @@ public class Ambience {
                 let currentState = self.currentState
                 self.currentState = currentState
             }
+            
+            forcedPersistence « forcedState?.rawValue
         }
     }
     
@@ -101,7 +105,11 @@ public class Ambience {
             name: NSNotification.Name.UIScreenBrightnessDidChange,
             object: nil)
         
-        checkBrightnessValue()
+        if let previousState = Ambience.forcedPersistence.value, let forcedState = AmbienceState(rawValue: previousState) {
+            Ambience.forcedState = forcedState
+        } else {
+            checkBrightnessValue()
+        }
     }
     
     deinit {

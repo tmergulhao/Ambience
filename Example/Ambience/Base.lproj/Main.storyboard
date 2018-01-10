@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Ambience_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -21,6 +21,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="va2-Ln-ikz">
+                                <rect key="frame" x="159" y="229" width="57" height="208"/>
+                                <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="4gL-Fj-vjN"/>
+                                    <constraint firstAttribute="height" constant="208" id="rce-ed-pBn"/>
+                                </constraints>
+                            </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWr-Wk-WDX">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xq9-E6-YPL">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="NlE-nf-FDz"/>
+                                    <constraint firstAttribute="height" constant="128" id="XVK-lr-f8y"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hii-uO-ezh">
                                 <rect key="frame" x="67" y="269" width="240" height="128"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -30,7 +50,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="contrastColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="invertColor">
                                         <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -70,14 +90,37 @@ In that dream I choose my own colors.</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Text field placeholder" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckl-Sa-rU7">
+                                <rect key="frame" x="77" y="188" width="220" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="VEk-D9-JNb"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColorInvert">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColorContrast">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.96999612630499998" green="0.96999999999999997" blue="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="va2-Ln-ikz" firstAttribute="top" secondItem="ckl-Sa-rU7" secondAttribute="bottom" constant="26" id="5eR-dd-MXP"/>
+                            <constraint firstItem="va2-Ln-ikz" firstAttribute="centerY" secondItem="hii-uO-ezh" secondAttribute="centerY" id="Jzb-l0-bP7"/>
+                            <constraint firstItem="FWr-Wk-WDX" firstAttribute="centerX" secondItem="hii-uO-ezh" secondAttribute="centerX" id="Lgr-jh-x3v"/>
                             <constraint firstItem="y66-RZ-EmC" firstAttribute="top" secondItem="hii-uO-ezh" secondAttribute="bottom" constant="93" id="LpX-ej-G5S"/>
                             <constraint firstItem="oQH-rm-jV0" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="PzZ-dO-zbe"/>
+                            <constraint firstItem="FWr-Wk-WDX" firstAttribute="centerY" secondItem="hii-uO-ezh" secondAttribute="centerY" id="aP1-bo-hKF"/>
+                            <constraint firstItem="ckl-Sa-rU7" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="eUO-xH-ygJ"/>
                             <constraint firstItem="hii-uO-ezh" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="kkG-fd-Voo"/>
                             <constraint firstItem="hii-uO-ezh" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="nLd-Lk-xRI"/>
                             <constraint firstItem="y66-RZ-EmC" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="uTN-qf-zZU"/>
+                            <constraint firstItem="va2-Ln-ikz" firstAttribute="centerX" secondItem="hii-uO-ezh" secondAttribute="centerX" id="wdX-dC-9FK"/>
                             <constraint firstItem="oQH-rm-jV0" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="xYr-1G-E8N"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -97,6 +140,9 @@ In that dream I choose my own colors.</string>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <customObject id="tff-oA-QJz" customClass="AmbienceObject" customModule="Ambience">
@@ -105,7 +151,7 @@ In that dream I choose my own colors.</string>
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="-156" y="1595"/>
+            <point key="canvasLocation" x="-156" y="1594.4527736131936"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="JNd-MS-68R">

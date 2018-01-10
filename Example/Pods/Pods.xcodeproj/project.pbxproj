@@ -13,6 +13,8 @@
 		424FE655660B8538196371718C9EDDA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		7927F86E1FE4745100590F42 /* KeyValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927F86D1FE4745100590F42 /* KeyValues.swift */; };
 		7927F8701FE4759500590F42 /* UIView+Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927F86F1FE4759500590F42 /* UIView+Ambience.swift */; };
+		799575A42006902F00FA66B2 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799575A32006902F00FA66B2 /* Defaultable.swift */; };
+		799575A62006948E00FA66B2 /* UITextField+Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799575A52006948E00FA66B2 /* UITextField+Ambience.swift */; };
 		79AB39AB2001372800B8415B /* StatusBarStyle+Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB39AA2001372800B8415B /* StatusBarStyle+Ambience.swift */; };
 		79C381E61FFD354A00C5E4D6 /* UINavigationBar+Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C381E51FFD354A00C5E4D6 /* UINavigationBar+Ambience.swift */; };
 		79C381EA1FFD49F600C5E4D6 /* Ambience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C381E91FFD49F600C5E4D6 /* Ambience.swift */; };
@@ -62,6 +64,8 @@
 		770810A68BB765EDE5EEF6A33BA19161 /* Pods_Ambience_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambience_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7927F86D1FE4745100590F42 /* KeyValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyValues.swift; path = Ambience/Classes/KeyValues.swift; sourceTree = "<group>"; };
 		7927F86F1FE4759500590F42 /* UIView+Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ambience.swift"; sourceTree = "<group>"; };
+		799575A32006902F00FA66B2 /* Defaultable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Defaultable.swift; path = Ambience/Classes/Defaultable.swift; sourceTree = "<group>"; };
+		799575A52006948E00FA66B2 /* UITextField+Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ambience.swift"; sourceTree = "<group>"; };
 		79AB39AA2001372800B8415B /* StatusBarStyle+Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatusBarStyle+Ambience.swift"; sourceTree = "<group>"; };
 		79C381E51FFD354A00C5E4D6 /* UINavigationBar+Ambience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Ambience.swift"; sourceTree = "<group>"; };
 		79C381E91FFD49F600C5E4D6 /* Ambience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ambience.swift; path = Ambience/Classes/Ambience.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				79C381E91FFD49F600C5E4D6 /* Ambience.swift */,
+				799575A32006902F00FA66B2 /* Defaultable.swift */,
 				79E74B551FFD06AB00AF3AA1 /* AmbienceObject.swift */,
 				79C381EB1FFD4BF900C5E4D6 /* AmbienceLabel.swift */,
 				79E74B511FFD06AB00AF3AA1 /* AmbienceConstraint.swift */,
@@ -256,6 +261,7 @@
 				79E74B5F1FFD06B300AF3AA1 /* UIButton+Ambience.swift */,
 				FBCC73171FE4482300263576 /* UILabel+Ambience.swift */,
 				79E74B5D1FFD06B300AF3AA1 /* UITextView+Ambience.swift */,
+				799575A52006948E00FA66B2 /* UITextField+Ambience.swift */,
 				7927F86F1FE4759500590F42 /* UIView+Ambience.swift */,
 				79AB39AA2001372800B8415B /* StatusBarStyle+Ambience.swift */,
 			);
@@ -398,6 +404,7 @@
 				79AB39AB2001372800B8415B /* StatusBarStyle+Ambience.swift in Sources */,
 				79EF10F42002973C00F23332 /* AmbienceStates.swift in Sources */,
 				79C381E61FFD354A00C5E4D6 /* UINavigationBar+Ambience.swift in Sources */,
+				799575A42006902F00FA66B2 /* Defaultable.swift in Sources */,
 				79E74B671FFD06B300AF3AA1 /* UIButton+Ambience.swift in Sources */,
 				FBCC731A1FE4482300263576 /* UILabel+Ambience.swift in Sources */,
 				79E74B6A1FFD06B300AF3AA1 /* UITabBar+Ambience.swift in Sources */,
@@ -407,6 +414,7 @@
 				79E74B5A1FFD06AC00AF3AA1 /* UITraitCollection+Ambience.swift in Sources */,
 				79C381EA1FFD49F600C5E4D6 /* Ambience.swift in Sources */,
 				79E74B591FFD06AC00AF3AA1 /* AmbienceListener.swift in Sources */,
+				799575A62006948E00FA66B2 /* UITextField+Ambience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		7996AA1520039AC500C39143 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7996AA1420039AC500C39143 /* ViewController.swift */; };
 		79AB39AD2001465500B8415B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB39AC2001465500B8415B /* TableViewController.swift */; };
 		79AB39AF20015E9D00B8415B /* TextTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AB39AE20015E9D00B8415B /* TextTableCell.swift */; };
 		8EEA845EF8BC905F25F5BBC3 /* Pods_Ambience_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 890611D000ADFCA0F0D5941E /* Pods_Ambience_Tests.framework */; };
@@ -41,6 +42,7 @@
 		607FACE51AFB9204008FA782 /* Ambience_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Ambience_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		7996AA1420039AC500C39143 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		79AB39AC2001465500B8415B /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		79AB39AE20015E9D00B8415B /* TextTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableCell.swift; sourceTree = "<group>"; };
 		890611D000ADFCA0F0D5941E /* Pods_Ambience_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambience_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +119,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				79AB39AC2001465500B8415B /* TableViewController.swift */,
+				7996AA1420039AC500C39143 /* ViewController.swift */,
 				79AB39AE20015E9D00B8415B /* TextTableCell.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -377,6 +380,7 @@
 			files = (
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				79AB39AF20015E9D00B8415B /* TextTableCell.swift in Sources */,
+				7996AA1520039AC500C39143 /* ViewController.swift in Sources */,
 				79AB39AD2001465500B8415B /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
