@@ -24,6 +24,7 @@ open class AmbienceObject : NSObject {
     @IBOutlet weak var viewController : UIViewController?
     
     @IBAction func switchAmbience (_ sender : AnyObject) {
+        
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         if invertAvailable {
@@ -67,6 +68,15 @@ open class AmbienceObject : NSObject {
         }
 
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        if let barButton = sender as? UIBarButtonItem {
+            
+            actionSheet.popoverPresentationController?.barButtonItem = barButton
+        
+        } else if let view = sender as? UIView {
+            
+            actionSheet.popoverPresentationController?.sourceView = view
+        }
         
         viewController?.present(actionSheet, animated: true)
     }

@@ -79,12 +79,13 @@ public class Ambience {
         }
     }
     internal func checkBrightnessValue () {
+        
+        if Ambience.forcedState != nil { return }
+
         processConstraints(forBrightness : UIScreen.main.brightness)
     }
     
     @objc public func brightnessDidChange (notification : NSNotification) {
-        
-        if Ambience.forcedState != nil { return }
         
         checkBrightnessValue()
     }

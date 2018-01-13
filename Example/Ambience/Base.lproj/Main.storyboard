@@ -96,6 +96,7 @@ In that dream I choose my own colors.</string>
                                     <constraint firstAttribute="width" constant="220" id="VEk-D9-JNb"/>
                                 </constraints>
                                 <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="ambience" value="YES"/>
