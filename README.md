@@ -24,6 +24,8 @@ Thanks a lot guys!
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+If you find that `pod install` responds `Unable to find a specification for Ambience`, you may `pod repo update`.
+
 ## Installation
 
 Ambience is available through [CocoaPods](http://cocoapods.org) and it's highly recommended you use it. To install it, simply add the following line to your Podfile:
