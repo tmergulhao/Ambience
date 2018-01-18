@@ -18,14 +18,14 @@ public func <(lhs: AmbienceConstraint, rhs: AmbienceConstraint) -> Bool {
 public typealias AmbienceConstraints = Set<AmbienceConstraint>
 
 public enum AmbienceConstraint : Hashable, Comparable, CustomStringConvertible {
-    case invert(upper : Brightness)
-    case regular(lower : Brightness, upper : Brightness)
-    case contrast(lower : Brightness)
+    case invert(upper : Brightness?)
+    case regular(lower : Brightness?, upper : Brightness?)
+    case contrast(lower : Brightness?)
     
     public var description : String {
         switch self {
         case .invert(let upper): return "Invert<\(upper)>"
-        case .regular(let lower, let upper): return "Invert<\(lower), \(upper)>"
+        case .regular(let lower, let upper): return "Regular<\(lower), \(upper)>"
         case .contrast(let lower): return "Contrast<\(lower)>"
         }
     }
@@ -45,11 +45,11 @@ public enum AmbienceConstraint : Hashable, Comparable, CustomStringConvertible {
     internal var rangeFunctor : ((Brightness) -> Bool) {
         switch self {
         case .invert(let upper):
-            return { $0 <= upper }
+            return upper != nil ? ({ $0 <= upper! }) : ({ _ in false })
         case .regular(let lower, let upper):
-            return { $0 <= upper && $0 >= lower }
+            return upper != nil && lower != nil ? ({ $0 <= upper! && $0 >= lower! }) : ({ _ in false })
         case .contrast(let lower):
-            return { $0 >= lower }
+            return lower != nil ? ({ $0 >= lower! }) : ({ _ in false })
         }
     }
 }
