@@ -24,9 +24,9 @@ public enum AmbienceConstraint : Hashable, Comparable, CustomStringConvertible {
     
     public var description : String {
         switch self {
-        case .invert(let upper): return "Invert<\(upper)>"
-        case .regular(let lower, let upper): return "Regular<\(lower), \(upper)>"
-        case .contrast(let lower): return "Contrast<\(lower)>"
+        case .invert(let upper): return "Invert<\(String(describing: upper))>"
+        case .regular(let lower, let upper): return "Regular<\(String(describing: lower)), \(String(describing: upper))>"
+        case .contrast(let lower): return "Contrast<\(String(describing: lower))>"
         }
     }
     
