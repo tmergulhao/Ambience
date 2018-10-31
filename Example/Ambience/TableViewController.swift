@@ -37,9 +37,9 @@ class TableViewController : UITableViewController {
         
         switch random {
         case 0:
-            return "Cell with image"
+            return "Cellwithimage"
         default:
-            return "Cell with text"
+            return "Cellwithtext"
         }
     })
     
@@ -57,7 +57,7 @@ class TableViewController : UITableViewController {
         case 0:
             cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.row])
         default:
-            let someCell = tableView.dequeueReusableCell(withIdentifier: "Cell with text") as! TextTableCell
+            let someCell = tableView.dequeueReusableCell(withIdentifier: "Cellwithtext") as! TextTableCell
             
             someCell.textView?.reinstateAmbience()
             
@@ -68,7 +68,7 @@ class TableViewController : UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
 }
 

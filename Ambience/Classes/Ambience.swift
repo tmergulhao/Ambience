@@ -103,7 +103,7 @@ public class Ambience {
         
         NotificationCenter.default.addObserver(self,
             selector: #selector(brightnessDidChange),
-            name: NSNotification.Name.UIScreenBrightnessDidChange,
+            name: UIScreen.brightnessDidChangeNotification,
             object: nil)
         
         if let previousState = Ambience.forcedPersistence.value, let forcedState = AmbienceState(rawValue: previousState) {

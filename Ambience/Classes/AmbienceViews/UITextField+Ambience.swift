@@ -69,7 +69,7 @@ extension UITextField {
             textColor = color
             
             if let string = attributedPlaceholder?.string, let color = textColor {
-                attributedPlaceholder = NSAttributedString(string: string, attributes: [NSAttributedStringKey.foregroundColor : color.withAlphaComponent(0.5)])
+                attributedPlaceholder = NSAttributedString(string: string, attributes: [NSAttributedString.Key.foregroundColor : color.withAlphaComponent(0.5)])
             }
             
         } else {
@@ -87,7 +87,7 @@ extension UITextField {
                 self.textColor = color
                 
                 if let string = self.attributedPlaceholder?.string, let color = self.textColor {
-                    self.attributedPlaceholder = NSAttributedString(string: string, attributes: [NSAttributedStringKey.foregroundColor : color.withAlphaComponent(0.5)])
+                    self.attributedPlaceholder = NSAttributedString(string: string, attributes: [NSAttributedString.Key.foregroundColor : color.withAlphaComponent(0.5)])
                 }
             }
         }
